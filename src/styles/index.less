@@ -17,6 +17,13 @@
 @yellow: #f5d76e;
 
 // mixins
+.animation(@time: 0.2s, @delay: 0s) {
+	animation-duration: @time!important;
+	animation-delay: @delay!important;
+}
+.center {
+	margin: auto;
+}
 .color(@bg, @txt) {
 	background-color: @bg;
 	color: @txt;
@@ -25,12 +32,13 @@
 	display: flex;
 	flex-direction: @direction;
 	flex-wrap: @wrap;
+	position: relative;
 }
 .flex-row {
-	.flexContainer(row, wrap)
+	.flexContainer(row, wrap);
 }
 .flex-column {
-	.flexContainer(column, nowrap)
+	.flexContainer(column, nowrap);
 }
 .flex {
 	flex: 1 1 auto;
@@ -40,6 +48,13 @@
 }
 .flex3 {
 	flex: 3 1 auto;
+}
+.hidden {
+	display: none!important;
+}
+.transition(@prop: all, @time: 0.2s, @type: ease-out) {
+	transition: @prop @time @type;
+	transition-duration: @time;
 }
 
 // normalize
@@ -76,48 +91,41 @@ h1.banner {
 	font-weight:300;
 	letter-spacing:-5px;
 	line-height:128px;
-	// font-family: Avenir Light;
 }
 // display 3
 h1 {
 	font-size: 56px;
 	font-weight: 400;
 	line-height: 64px;
-	// font-family: Avenir Regular;
 }
 // display 2
 h2 {
 	font-size: 45px;
 	font-weight: 400;
 	line-height: 64px;
-	// font-family: Avenir Regular;
 }
 // display 1
 h3 {
 	font-size: 34px;
 	font-weight: 400;
 	line-height: 52px;
-	// font-family: Avenir Regular;
 }
 // header
 h4 {
 	font-size: 24px;
 	font-weight: 400;
 	line-height: 39px;
-	// font-family: Avenir Regular;
 }
 // title
 h5 {
 	font-size: 20px;
 	font-weight: 400;
 	line-height: 32px;
-	// font-family: Avenir Demi;
 }
 // text
 p {
-	font-size: 1.75rem;//14px
+	font-size: 1.75rem;
 	line-height: 22.4px;
-	// font-family: Avenir Regular;
 }
 
 
@@ -125,8 +133,34 @@ p {
 
 #home {
 	overflow-y: scroll!important;
+	min-height: 100%;
+	height: auto!important;
 }
 
-#jar {
+.jar {
 	height: 100vh/2;
+	width: 100%;
+}
+
+.glass {
+	height: 65%;
+	width: 40%;
+	color: @navy;
+	border: solid 6px;
+	border-bottom: 8px solid;
+	border-radius: 0 0 20% 20%;
+	border-top: 0;
+	position: relative;
+}
+
+#change {
+	height: 0;
+	background: @green;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	border-radius: 0 0 26px 26px;
+	.transition(height, 0.5s);
+	max-height: 100%;
+	overflow: hidden!important;
 }

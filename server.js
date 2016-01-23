@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-var User = require('./models/User');
+// var User = require('./models/User');
 var coinbase = require('coinbase');
 var settings = require('./config/settings');
 
@@ -13,14 +13,25 @@ var client = new coinbase.Client({
 });
 
 app.get('/getBalance', function (req, res) {
-    console.log('Got a request!');
-
-    res.send('Hey thanks for the request.');
+  client.getAccounts({}, function(err, accounts) {
+    var balance = new Object();
+    balance.amount = accounts[1].balance.amount;
+    balance.currency = accounts[1].balance.currency;
+    balance.name = accounts[1].name;
+    res.send(balance);
+  });
 });
 
 app.get('/getAccount', function (req, res) {
-		console.log("Getting account.");
-		res.send("Account should be here.");
+    client.getAccount('primary', function (err, account) {
+      var primaryAccount = new Object();
+      primaryAccount.name = account.name;
+      primaryAccount.balance = account.balance.amount;
+      primaryAccount.currency = account.currency;
+      primaryAccount.native_balance = account.native_balance.amount;
+      primaryAccount.native_balance_currency = account.native_balance.currency;
+      res.send(primaryAccount);
+    });
 });
 
 app.get('/getTransactions', function (req, res) {
@@ -36,8 +47,11 @@ app.get('/getTransactions', function (req, res) {
 });
 
 app.get('/getAddress', function (req, res) {
-		console.log("The address is...");
-		res.send("Here's your address.");
+    var primaryAccount = client.getAccount('primary', function (err, account) {
+        account.createAddress(null, function (err, address) {
+            res.send(address.address);
+        });
+    });
 });
 
 app.get('/getLastLogin', function (req, res) {
