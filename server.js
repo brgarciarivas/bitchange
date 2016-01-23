@@ -1,6 +1,13 @@
 var express = require('express');
 var app = express();
 var User = require('./models/User');
+var coinbase = require('coinbase');
+var settings = require('./config/settings');
+
+var client = new coinbase.Client({
+    'apiKey': settings.API_KEY,
+    'apiSecret': settings.API_SECRET
+});
 
 app.get('/getBalance', function (req, res) {
     console.log('Got a request!');
