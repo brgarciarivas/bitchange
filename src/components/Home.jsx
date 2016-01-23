@@ -20,7 +20,7 @@ export default class Home extends Base {
 	}
 	render() {
 		return (
-			<p>{this.props.appState.get('test')}</p>
+			<p onClick={this.test}>{this.props.appState.get('test')}</p>
 		)
 	}
 }

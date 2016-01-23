@@ -16,7 +16,7 @@ const push = initApp.push
 export default class App extends Base {
 	constructor(props) {
 		super(props)
-		this.autoBind('initialize', 'test')
+		this.autoBind('initialize')
 		this.state = {
 			appState: initialAppState
 		}
@@ -28,7 +28,9 @@ export default class App extends Base {
 		initApp.floodGate.subscribe(newState => this.setState({ appState: newState }))
 	}
 	getChildContext() {
-		push: push
+		return {
+			push: push
+		}
 	}
 	render() {
 		var test = this.state.appState.get('test')
