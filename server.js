@@ -25,7 +25,7 @@ app.get('/getBalance', function (req, res) {
 
 app.get('/getAccount', function (req, res) {
 		console.log("Getting account.");
-		res.send("Account should be here.");
+        res.send('Got account!');
 });
 
 app.get('/getTransactions', function (req, res) {
@@ -34,8 +34,13 @@ app.get('/getTransactions', function (req, res) {
 });
 
 app.get('/getAddress', function (req, res) {
-		console.log("The address is...");
-		res.send("Here's your address.");
+    console.log('==get address==');
+    var primaryAccount = client.getAccount('primary', function (err, account) {
+        account.createAddress(null, function (err, address) {
+            console.log(address.address);
+            res.send(address.address);
+        });
+    });
 });
 
 app.get('/getLastLogin', function (req, res) {
