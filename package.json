@@ -1,0 +1,22 @@
+{
+  "name": "bitchange",
+  "version": "1.0.0",
+  "description": "get change in bitcoins",
+  "main": "index.js",
+  "scripts": {
+    "test": "webpack-dev-server --progress --colors"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krefsar/bitchange.git"
+  },
+  "keywords": [
+    "bitcoin"
+  ],
+  "author": "Quinn Pruitt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/krefsar/bitchange/issues"
+  },
+  "homepage": "https://github.com/krefsar/bitchange#readme"
+}
