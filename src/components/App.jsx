@@ -10,8 +10,30 @@ import Base from './Base'
 
 injectTapEventPlugin()
 
+let testDate = new Date()
 let initialAppState = Immutable.Map({
-	test: 1
+	test: 1,
+	transactions: [
+		{
+			location: 'Nugbrand',
+			date: testDate,
+			amount: .35
+		},
+		{
+			location: '7 11',
+			date: testDate,
+			amount: .45
+		},
+		{
+			location: 'Setmine',
+			date: testDate,
+			amount: .55
+		}
+	],
+	user: {},
+	balance: 4,
+	goal: 10,
+	open: false
 })
 
 let initApp = GlobalEventHandler(initialAppState)
