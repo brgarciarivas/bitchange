@@ -1,3 +1,9 @@
+// variables
+
+@pageWidth: 100vw;
+
+// colors
+
 @purple: #9b59b6;
 @blue: #22a7f0;
 @lightGray: #dadfe1;
@@ -10,6 +16,32 @@
 @green: #2ecc71;
 @yellow: #f5d76e;
 
+// mixins
+.color(@bg, @txt) {
+	background-color: @bg;
+	color: @txt;
+}
+.flexContainer(@direction, @wrap) {
+	display: flex;
+	flex-direction: @direction;
+	flex-wrap: @wrap;
+}
+.flex-row {
+	.flexContainer(row, wrap)
+}
+.flex-column {
+	.flexContainer(column, nowrap)
+}
+.flex {
+	flex: 1 1 auto;
+}
+.flex2 {
+	flex: 2 1 auto;
+}
+.flex3 {
+	flex: 3 1 auto;
+}
+
 // normalize
 html {
 	background: #f4f4f4;
@@ -20,7 +52,7 @@ body {
 	margin:0;
 	padding:0;
 	cursor:default;
-	width: 100vw;
+	width: @pageWidth;
 	overflow-x:hidden;
 	font-size: 1.75rem;
 }
@@ -92,5 +124,9 @@ p {
 // components
 
 #home {
-	height: 100vh*2/3;
+	overflow-y: scroll!important;
+}
+
+#jar {
+	height: 100vh/2;
 }

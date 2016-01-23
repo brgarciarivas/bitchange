@@ -28,6 +28,16 @@ let initialAppState = Immutable.Map({
 			location: 'Setmine',
 			date: testDate,
 			amount: .55
+		},
+		{
+			location: 'Setmine',
+			date: testDate,
+			amount: .55
+		},
+		{
+			location: 'Setmine',
+			date: testDate,
+			amount: .55
 		}
 	],
 	user: {},
