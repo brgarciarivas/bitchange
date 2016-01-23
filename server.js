@@ -30,8 +30,18 @@ app.get('/getAccount', function (req, res) {
       primaryAccount.currency = account.currency;
       primaryAccount.native_balance = account.native_balance.amount;
       primaryAccount.native_balance_currency = account.native_balance.currency;
+      primaryAccount.email = account
       res.send(primaryAccount);
     });
+});
+
+app.get('/getUser', function (req, res) {
+  client.getCurrentUser(function(err, user){
+    var current_user = new Object();
+    current_user.email = user.email;
+    current_user.name = user.name;
+    res.send(current_user);
+  });
 });
 
 app.get('/getTransactions', function (req, res) {
