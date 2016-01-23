@@ -33,6 +33,7 @@
     "history": "~1.13.0",
     "html-webpack-plugin": "^1.6.1",
     "immutable": "^3.7.4",
+    "jquery": "^2.2.0",
     "jsx-loader": "^0.13.2",
     "knex": "^0.9.0",
     "material-ui": "^0.13.4",
@@ -46,7 +47,6 @@
     "webpack": "^1.11.0",
     "webpack-dev-server": "^1.10.1",
     "whatwg-fetch": "^0.10.1"
-    
   },
   "devDependencies": {
     "moment": "^2.11.1"
