@@ -3,6 +3,7 @@ import Base from './Base'
 import AppBar from 'material-ui/lib/app-bar'
 
 import Transactions from './Transactions'
+import Jar from './Jar'
 
 export default class Home extends Base {
 	constructor(props) {
@@ -21,9 +22,9 @@ export default class Home extends Base {
 	}
 	render() {
 		return (
-			<div id='home'>
-				<AppBar title='bitchange' />
+			<div id='home' className='flex-column'>
 				<p styleName='test' onClick={this.test}>{this.props.appState.get('test')}</p>
+				<Jar />
 				<Transactions appState={this.props.appState} />
 			</div>
 		)
