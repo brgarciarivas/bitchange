@@ -1,6 +1,8 @@
 import React from 'react'
 import Immutable from 'immutable'
 import GlobalEventHandler from '../scripts/globalEventHandler'
+import injectTapEventPlugin from 'react-tap-event-plugin'
+injectTapEventPlugin()
 
 // theme setup
 import ThemeManager from 'material-ui/lib/styles/theme-manager'

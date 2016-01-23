@@ -133,6 +133,8 @@ p {
 
 #home {
 	overflow-y: scroll!important;
+	min-height: 100%;
+	height: auto!important;
 }
 
 .jar {
@@ -144,8 +146,8 @@ p {
 	height: 65%;
 	width: 40%;
 	color: @navy;
-	border: solid 8px;
-	border-bottom: 10px solid;
+	border: solid 6px;
+	border-bottom: 8px solid;
 	border-radius: 0 0 20% 20%;
 	border-top: 0;
 	position: relative;
@@ -157,8 +159,8 @@ p {
 	position: absolute;
 	bottom: 0;
 	width: 100%;
-	border-radius: 0 0 24px 24px;
-	.transition(height);
+	border-radius: 0 0 26px 26px;
+	.transition(height, 0.5s);
 	max-height: 100%;
 	overflow: hidden!important;
 }
