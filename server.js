@@ -25,7 +25,15 @@ app.get('/getBalance', function (req, res) {
 
 app.get('/getAccount', function (req, res) {
 		console.log("Getting account.");
-        res.send('Got account!');
+    client.getAccount('primary', function (err, account) {
+      var primaryAccount = new Object();
+      primaryAccount.name = account.name;
+      primaryAccount.balance = account.balance.amount;
+      primaryAccount.currency = account.currency;
+      primaryAccount.native_balance = account.native_balance.amount;
+      primaryAccount.native_balance_currency = account.native_balance.currency;
+      res.send(primaryAccount);
+    });
 });
 
 app.get('/getTransactions', function (req, res) {
