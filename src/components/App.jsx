@@ -7,7 +7,7 @@ import Base from './Base'
 injectTapEventPlugin()
 
 let initialAppState = Immutable.Map({
-	test: 'ayy lmao'
+	test: 1
 })
 
 let initApp = GlobalEventHandler(initialAppState)
@@ -16,7 +16,7 @@ const push = initApp.push
 export default class App extends Base {
 	constructor(props) {
 		super(props)
-		this.autoBind('test', 'initialize')
+		this.autoBind('initialize', 'test')
 		this.state = {
 			appState: initialAppState
 		}
@@ -31,12 +31,21 @@ export default class App extends Base {
 		push: push
 	}
 	test() {
-		console.log('ayy lmao')
+		let lol = this.state.appState.get('test')
+		lol = lol + 1
+		push({
+			type: 'SHALLOW_MERGE', 
+			data: {
+				test: lol
+			}
+		})
 	}
 	render() {
+		var test = this.state.appState.get('test')
+		console.log(this.state.appState)
 		return (
-			<div onClick={() => console.log(new Date())}>
-				test shit fuck
+			<div onClick={this.test}>
+				<p>{test}</p>
 			</div>
 		)
 	}
