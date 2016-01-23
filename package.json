@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/krefsar/bitchange/issues"
   },
-  "homepage": "https://github.com/krefsar/bitchange#readme"
+  "homepage": "https://github.com/krefsar/bitchange#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
 }
