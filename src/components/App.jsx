@@ -2,12 +2,38 @@ import React from 'react'
 import Immutable from 'immutable'
 import GlobalEventHandler from '../scripts/globalEventHandler'
 import injectTapEventPlugin from 'react-tap-event-plugin'
+
+// theme setup
+import ThemeManager from 'material-ui/lib/styles/theme-manager'
+import DankMemes from '../constants/dankmemes'
 import Base from './Base'
 
 injectTapEventPlugin()
 
+let testDate = new Date()
 let initialAppState = Immutable.Map({
-	test: 1
+	test: 1,
+	transactions: [
+		{
+			location: 'Nugbrand',
+			date: testDate,
+			amount: .35
+		},
+		{
+			location: '7 11',
+			date: testDate,
+			amount: .45
+		},
+		{
+			location: 'Setmine',
+			date: testDate,
+			amount: .55
+		}
+	],
+	user: {},
+	balance: 4,
+	goal: 10,
+	open: false
 })
 
 let initApp = GlobalEventHandler(initialAppState)
@@ -29,11 +55,11 @@ export default class App extends Base {
 	}
 	getChildContext() {
 		return {
-			push: push
+			push: push,
+			muiTheme: ThemeManager.getMuiTheme(DankMemes)
 		}
 	}
 	render() {
-		var test = this.state.appState.get('test')
 		return (
 			<div>
 				{
@@ -47,5 +73,6 @@ export default class App extends Base {
 }
 
 App.childContextTypes = {
-	push: React.PropTypes.func
+	push: React.PropTypes.func,
+	muiTheme: React.PropTypes.object
 }
