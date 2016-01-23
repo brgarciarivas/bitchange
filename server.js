@@ -4,9 +4,12 @@ var User = require('./models/User');
 var coinbase = require('coinbase');
 var settings = require('./config/settings');
 
+
 var client = new coinbase.Client({
     'apiKey': settings.API_KEY,
-    'apiSecret': settings.API_SECRET
+    'apiSecret': settings.API_SECRET,
+    'baseApiUri': 'https://api.sandbox.coinbase.com/v2/',
+  	'tokenUri': 'https://api.sandbox.coinbase.com/oauth/token'
 });
 
 app.get('/getBalance', function (req, res) {
@@ -21,8 +24,15 @@ app.get('/getAccount', function (req, res) {
 });
 
 app.get('/getTransactions', function (req, res) {
-		console.log("Transactions incoming!");
-		res.send("Here are the transaction.");
+		var responseObject = {};
+		responseObject.transactions = [];
+		client.getAccount('primary', function(err, account) {
+				account.getTransactions(null, function(err, txs) {
+						console.log(txs);
+						responseObject.transactions = txs
+						res.send(responseObject);
+				});
+		});
 });
 
 app.get('/getAddress', function (req, res) {
@@ -41,6 +51,9 @@ app.get('/getTransaction/:id', function (req, res) {
 });
 
 app.get('/getTransaction/:account_id/amount', function (req, res) {
+		client.getAccount('<ACCOUNT ID>', function(err, accounts) {
+				console.log('bal: ');
+		});
 		console.log(req.params.account_id.amount);
 		res.send("The amount you put in belongs here.")
 });
