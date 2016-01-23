@@ -13,6 +13,12 @@ class Transactions extends Base {
 	}
 	render() {
 		let transactions = this.props.appState.get('transactions')
+
+		// I can show
+		// amount
+		// status ie completed/pending
+		// date
+
 		return (
 			<List subheader='TRANSACTIONS'>
 				{

@@ -8,23 +8,27 @@ import Jar from './Jar'
 export default class Home extends Base {
 	constructor(props) {
 		super(props)
-		this.autoBind('test')
+		this.autoBind('updateBalance')
 	}
-	test() {
-		let lol = this.props.appState.get('test')
-		lol = lol + 1
+	updateBalance() {
+		var balance = this.props.appState.get('balance')
+		var lol = balance + 2
+		console.log(`balance | old: ${balance} new: ${lol}`)
 		this.context.push({
 			type: 'SHALLOW_MERGE', 
 			data: {
-				test: lol
+				balance: lol
 			}
 		})
 	}
 	render() {
+		var appState = this.props.appState
+		var balance = appState.get('balance')
+		var goal = appState.get('goal')
 		return (
 			<div id='home' className='flex-column'>
-				<p styleName='test' onClick={this.test}>{this.props.appState.get('test')}</p>
-				<Jar />
+				<p onClick={this.test}>{this.props.appState.get('balance')}</p>
+				<Jar balance={balance} goal={goal} />
 				<Transactions appState={this.props.appState} />
 			</div>
 		)

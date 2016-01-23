@@ -7,8 +7,8 @@ import ThemeManager from 'material-ui/lib/styles/theme-manager'
 import DankMemes from '../constants/dankmemes'
 import Base from './Base'
 
-let testDate = new Date()
-let initialAppState = Immutable.Map({
+var testDate = new Date()
+var initialAppState = Immutable.Map({
 	test: 1,
 	transactions: [
 		{
@@ -38,12 +38,12 @@ let initialAppState = Immutable.Map({
 		}
 	],
 	user: {},
-	balance: 4,
-	goal: 10,
+	balance: 0,
+	goal: 20,
 	open: false
 })
 
-let initApp = GlobalEventHandler(initialAppState)
+var initApp = GlobalEventHandler(initialAppState)
 const push = initApp.push
 
 export default class App extends Base {

@@ -5,19 +5,21 @@ import $ from 'jquery'
 export default class Jar extends Base {
 	constructor(props) {
 		super(props)
-		// this.autoBind()
-		this.state = {
-			height: 20
-		}
 	}
 	componentDidMount() {
 		// animation stuff 
 	}
 	render() {
+		var {balance, goal} = this.props
+		var height = (balance/goal)*100
+
+		var style = {
+			height: height+'%'
+		}
 		return (
 			<div className='jar flex-column'>
 				<div className='glass center'>
-					<div id='change' style={{ height: this.state.height }}/>
+					<div id='change' style={style}/>
 				</div>
 			</div>
 		)
