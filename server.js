@@ -34,10 +34,8 @@ app.get('/getTransactions', function (req, res) {
 });
 
 app.get('/getAddress', function (req, res) {
-    console.log('==get address==');
     var primaryAccount = client.getAccount('primary', function (err, account) {
         account.createAddress(null, function (err, address) {
-            console.log(address.address);
             res.send(address.address);
         });
     });
