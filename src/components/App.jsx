@@ -2,6 +2,10 @@ import React from 'react'
 import Immutable from 'immutable'
 import GlobalEventHandler from '../scripts/globalEventHandler'
 import injectTapEventPlugin from 'react-tap-event-plugin'
+
+// theme setup
+import ThemeManager from 'material-ui/lib/styles/theme-manager'
+import DankMemes from '../constants/dankmemes'
 import Base from './Base'
 
 injectTapEventPlugin()
@@ -29,11 +33,11 @@ export default class App extends Base {
 	}
 	getChildContext() {
 		return {
-			push: push
+			push: push,
+			muiTheme: ThemeManager.getMuiTheme(DankMemes)
 		}
 	}
 	render() {
-		var test = this.state.appState.get('test')
 		return (
 			<div>
 				{
@@ -47,5 +51,6 @@ export default class App extends Base {
 }
 
 App.childContextTypes = {
-	push: React.PropTypes.func
+	push: React.PropTypes.func,
+	muiTheme: React.PropTypes.object
 }

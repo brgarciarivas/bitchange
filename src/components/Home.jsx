@@ -2,6 +2,7 @@ import React from 'react'
 import Base from './Base'
 // import CssModules from 'react-css-modules'
 // import styles from '../styles/Home.css'
+import {AppBar} from 'material-ui'
 
 export default class Home extends Base {
 	constructor(props) {
@@ -20,7 +21,10 @@ export default class Home extends Base {
 	}
 	render() {
 		return (
-			<p onClick={this.test}>{this.props.appState.get('test')}</p>
+			<div>
+				<AppBar title='bitchange' />
+				<p onClick={this.test}>{this.props.appState.get('test')}</p>
+			</div>
 		)
 	}
 }
