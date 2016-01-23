@@ -12,9 +12,7 @@ var client = new coinbase.Client({
 });
 
 app.get('/getBalance', function (req, res) {
-  console.log('Your balance is...');
   client.getAccounts({}, function(err, accounts) {
-    console.log('may bal: ' +  accounts[1].balance.amount + ' for ' + accounts[1].name);
     var balance = new Object();
     balance.amount = accounts[1].balance.amount;
     balance.currency = accounts[1].balance.currency;
@@ -24,7 +22,6 @@ app.get('/getBalance', function (req, res) {
 });
 
 app.get('/getAccount', function (req, res) {
-		console.log("Getting account.");
     client.getAccount('primary', function (err, account) {
       var primaryAccount = new Object();
       primaryAccount.name = account.name;
