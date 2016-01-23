@@ -3,6 +3,7 @@ import Base from './Base'
 import AppBar from 'material-ui/lib/app-bar'
 
 import Transactions from './Transactions'
+import Balance from './Balance'
 import Jar from './Jar'
 
 export default class Home extends Base {
@@ -35,6 +36,7 @@ export default class Home extends Base {
 			<div id='home' className='flex-column'>
 				<p onClick={this.updateBalance}>{this.props.appState.get('balance')}</p>
 				<Jar balance={balance} goal={goal} />
+				<Balance balance={balance} goal={goal} />
 				<Transactions appState={this.props.appState} />
 			</div>
 		)

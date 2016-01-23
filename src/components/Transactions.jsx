@@ -16,7 +16,12 @@ class Transactions extends Base {
 		console.log('new transaction')
 	}
 	render() {
-		let transactions = this.props.appState.get('transactions')
+		var transactions = this.props.appState.get('transactions')
+		var buttonStyle = {
+			position: 'fixed',
+			right: '3rem',
+			bottom: '3rem'
+		}
 
 		// I can show
 		// amount
@@ -36,8 +41,10 @@ class Transactions extends Base {
 								secondaryText={Moment(trans.date).format('h:mm - MMM D YYYY')} />
 						})
 					}
-					<FloatingActionButton onTouchTap={this.createNewTransaction} />
 				</List>
+				<FloatingActionButton 
+					style={buttonStyle}
+					onTouchTap={this.createNewTransaction} />
 			</div>
 		)
 	}

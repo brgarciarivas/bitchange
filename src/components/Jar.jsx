@@ -12,10 +12,10 @@ export default class Jar extends Base {
 	render() {
 		var {balance, goal} = this.props
 		var height = (balance/goal)*100
-
 		var style = {
 			height: height+'%'
 		}
+		
 		return (
 			<div className='jar flex-column'>
 				<div className='glass center'>

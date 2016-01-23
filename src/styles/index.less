@@ -131,28 +131,9 @@ p {
 
 // components
 
-#home {
-	overflow-y: scroll!important;
-	min-height: 100%;
-	height: auto!important;
+#balance {
+	text-align: center;
 }
-
-.jar {
-	height: 100vh/2;
-	width: 100%;
-}
-
-.glass {
-	height: 65%;
-	width: 40%;
-	color: @navy;
-	border: solid 6px;
-	border-bottom: 8px solid;
-	border-radius: 0 0 20% 20%;
-	border-top: 0;
-	position: relative;
-}
-
 #change {
 	height: 0;
 	background: @green;
@@ -163,4 +144,23 @@ p {
 	.transition(height, 0.5s);
 	max-height: 100%;
 	overflow: hidden!important;
+}
+.glass {
+	height: 80%;
+	width: 40%;
+	color: @navy;
+	border: solid 6px;
+	border-bottom: 8px solid;
+	border-radius: 0 0 20% 20%;
+	border-top: 0;
+	position: relative;
+}
+#home {
+	overflow-y: scroll!important;
+	min-height: 100%;
+	height: auto!important;
+}
+.jar {
+	height: 40vh;
+	width: 100%;
 }
