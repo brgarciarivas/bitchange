@@ -1,7 +1,6 @@
 var webpack = require('webpack')
 var path = require('path')
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 var buildPath = path.resolve(__dirname, 'src')
 
@@ -26,9 +25,6 @@ module.exports = {
 		new webpack.ProvidePlugin({
 			'Promise': 'es6-promise',
 			'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
-		}),
-		new ExtractTextPlugin('app.css', {
-			allChunks: true
 		})
 	],
 	devtool: 'cheap-source-map',
@@ -46,10 +42,6 @@ module.exports = {
 				test: /\.json$/,
 				loader: 'json-loader',
 				exclude: /node_modules/
-			},
-			{
-				test: /\.css$/,
-				loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]')
 			}
 		]
 	}
