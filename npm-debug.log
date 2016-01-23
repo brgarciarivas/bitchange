@@ -2,7 +2,7 @@
 1 verbose cli [ '/Users/Quinn/.nvm/versions/node/v0.12.7/bin/node',
 1 verbose cli   '/Users/Quinn/.nvm/versions/node/v0.12.7/bin/npm',
 1 verbose cli   'install',
-1 verbose cli   'moment',
+1 verbose cli   'jquery',
 1 verbose cli   '--save' ]
 2 info using npm@2.11.3
 3 info using node@v0.12.7
@@ -32,326 +32,319 @@
 27 verbose installManyTop reading scoped package data from /Users/Quinn/Documents/Setmine/bitchange/node_modules/webpack-dev-server/package.json
 28 verbose installManyTop reading scoped package data from /Users/Quinn/Documents/Setmine/bitchange/node_modules/whatwg-fetch/package.json
 29 info package.json jsx-loader@0.13.2 license should be a valid SPDX license expression
-30 info package.json react-tap-event-plugin@0.2.1 No license field.
-31 info package.json whatwg-fetch@0.10.1 No license field.
+30 info package.json whatwg-fetch@0.10.1 No license field.
+31 info package.json react-tap-event-plugin@0.2.1 No license field.
 32 verbose readDependencies loading dependencies from /Users/Quinn/Documents/Setmine/bitchange/package.json
-33 verbose install moment is installed as 2.11.1
-34 silly cache add args [ 'moment', null ]
-35 verbose cache add spec moment
-36 silly cache add parsed spec { raw: 'moment',
-36 silly cache add   scope: null,
-36 silly cache add   name: 'moment',
-36 silly cache add   rawSpec: '',
-36 silly cache add   spec: '*',
-36 silly cache add   type: 'range' }
-37 silly addNamed moment@*
-38 verbose addNamed "*" is a valid semver range for moment
-39 silly addNameRange { name: 'moment', range: '*', hasData: false }
-40 silly mapToRegistry name moment
-41 silly mapToRegistry using default registry
-42 silly mapToRegistry registry https://registry.npmjs.org/
-43 silly mapToRegistry uri https://registry.npmjs.org/moment
-44 verbose addNameRange registry:https://registry.npmjs.org/moment not in flight; fetching
-45 verbose request uri https://registry.npmjs.org/moment
-46 verbose request no auth needed
-47 info attempt registry request try #1 at 1:46:05 PM
-48 verbose request id bc75cbc955460cdd
-49 verbose etag "C2A42PZYGS3RN7ZR6HD833K2X"
-50 http request GET https://registry.npmjs.org/moment
-51 http 304 https://registry.npmjs.org/moment
-52 silly get cb [ 304,
-52 silly get   { date: 'Sat, 23 Jan 2016 18:46:06 GMT',
-52 silly get     via: '1.1 varnish',
-52 silly get     'cache-control': 'max-age=300',
-52 silly get     etag: '"C2A42PZYGS3RN7ZR6HD833K2X"',
-52 silly get     age: '192',
-52 silly get     connection: 'keep-alive',
-52 silly get     'x-served-by': 'cache-jfk1025-JFK',
-52 silly get     'x-cache': 'HIT',
-52 silly get     'x-cache-hits': '2',
-52 silly get     'x-timer': 'S1453574766.307790,VS0,VE0',
-52 silly get     vary: 'Accept' } ]
-53 verbose etag https://registry.npmjs.org/moment from cache
-54 verbose get saving moment to /Users/Quinn/.npm/registry.npmjs.org/moment/.cache.json
-55 silly addNameRange number 2 { name: 'moment', range: '*', hasData: true }
-56 silly addNameRange versions [ 'moment',
-56 silly addNameRange   [ '1.0.0',
-56 silly addNameRange     '1.0.1',
-56 silly addNameRange     '1.1.0',
-56 silly addNameRange     '1.1.1',
-56 silly addNameRange     '1.2.0',
-56 silly addNameRange     '1.3.0',
-56 silly addNameRange     '1.4.0',
-56 silly addNameRange     '1.5.0',
-56 silly addNameRange     '1.5.1',
-56 silly addNameRange     '1.6.0',
-56 silly addNameRange     '1.6.1',
-56 silly addNameRange     '1.6.2',
-56 silly addNameRange     '1.7.0',
-56 silly addNameRange     '1.7.1',
-56 silly addNameRange     '1.7.2',
-56 silly addNameRange     '2.0.0',
-56 silly addNameRange     '2.1.0',
-56 silly addNameRange     '2.2.1',
-56 silly addNameRange     '2.3.0',
-56 silly addNameRange     '2.3.1',
-56 silly addNameRange     '2.4.0',
-56 silly addNameRange     '2.5.0',
-56 silly addNameRange     '2.5.1',
-56 silly addNameRange     '2.6.0',
-56 silly addNameRange     '2.7.0',
-56 silly addNameRange     '2.8.1',
-56 silly addNameRange     '2.8.2',
-56 silly addNameRange     '2.8.3',
-56 silly addNameRange     '2.8.4',
-56 silly addNameRange     '2.9.0',
-56 silly addNameRange     '2.10.2',
-56 silly addNameRange     '2.10.3',
-56 silly addNameRange     '2.10.5',
-56 silly addNameRange     '2.10.6',
-56 silly addNameRange     '2.11.0',
-56 silly addNameRange     '2.11.1' ] ]
-57 silly addNamed moment@2.11.1
-58 verbose addNamed "2.11.1" is a plain semver version for moment
-59 silly cache afterAdd moment@2.11.1
-60 verbose afterAdd /Users/Quinn/.npm/moment/2.11.1/package/package.json not in flight; writing
-61 verbose afterAdd /Users/Quinn/.npm/moment/2.11.1/package/package.json written
-62 silly install resolved [ { name: 'moment',
-62 silly install resolved     version: '2.11.1',
-62 silly install resolved     description: 'Parse, validate, manipulate, and display dates',
-62 silly install resolved     homepage: 'http://momentjs.com',
-62 silly install resolved     author:
-62 silly install resolved      { name: 'Iskren Ivov Chernev',
-62 silly install resolved        email: 'iskren.chernev@gmail.com',
-62 silly install resolved        url: 'https://github.com/ichernev' },
-62 silly install resolved     contributors: [ [Object], [Object], [Object], [Object], [Object] ],
-62 silly install resolved     keywords:
-62 silly install resolved      [ 'moment',
-62 silly install resolved        'date',
-62 silly install resolved        'time',
-62 silly install resolved        'parse',
-62 silly install resolved        'format',
-62 silly install resolved        'validate',
-62 silly install resolved        'i18n',
-62 silly install resolved        'l10n',
-62 silly install resolved        'ender' ],
-62 silly install resolved     main: './moment.js',
-62 silly install resolved     engines: { node: '*' },
-62 silly install resolved     repository: { type: 'git', url: 'git+https://github.com/moment/moment.git' },
-62 silly install resolved     bugs: { url: 'https://github.com/moment/moment/issues' },
-62 silly install resolved     license: 'MIT',
-62 silly install resolved     devDependencies:
-62 silly install resolved      { 'uglify-js': 'latest',
-62 silly install resolved        'es6-promise': 'latest',
-62 silly install resolved        grunt: 'latest',
-62 silly install resolved        'grunt-cli': 'latest',
-62 silly install resolved        benchmark: 'latest',
-62 silly install resolved        esperanto: 'latest',
-62 silly install resolved        'grunt-contrib-clean': 'latest',
-62 silly install resolved        'grunt-contrib-concat': 'latest',
-62 silly install resolved        'grunt-contrib-copy': 'latest',
-62 silly install resolved        'grunt-contrib-jshint': 'latest',
-62 silly install resolved        'grunt-contrib-uglify': 'latest',
-62 silly install resolved        'grunt-contrib-watch': 'latest',
-62 silly install resolved        'grunt-env': 'latest',
-62 silly install resolved        'grunt-jscs': 'latest',
-62 silly install resolved        'grunt-karma': 'latest',
-62 silly install resolved        'grunt-nuget': 'latest',
-62 silly install resolved        'grunt-benchmark': 'latest',
-62 silly install resolved        'grunt-string-replace': 'latest',
-62 silly install resolved        'grunt-exec': 'latest',
-62 silly install resolved        'load-grunt-tasks': 'latest',
-62 silly install resolved        karma: 'latest',
-62 silly install resolved        'karma-chrome-launcher': 'latest',
-62 silly install resolved        'karma-firefox-launcher': 'latest',
-62 silly install resolved        'karma-qunit': 'latest',
-62 silly install resolved        'karma-sauce-launcher': 'latest',
-62 silly install resolved        qunit: '^0.7.5',
-62 silly install resolved        'qunit-cli': '^0.1.4',
-62 silly install resolved        spacejam: 'latest',
-62 silly install resolved        coveralls: '^2.11.2',
-62 silly install resolved        nyc: '^2.1.4' },
-62 silly install resolved     ender: './ender.js',
-62 silly install resolved     dojoBuild: 'package.js',
-62 silly install resolved     jspm: { files: [Object], map: [Object], buildConfig: [Object] },
-62 silly install resolved     scripts:
-62 silly install resolved      { test: 'grunt test',
-62 silly install resolved        coverage: 'nyc npm test && nyc report',
-62 silly install resolved        coveralls: 'nyc npm test && nyc report --reporter=text-lcov | coveralls' },
-62 silly install resolved     spm: { main: 'moment.js', output: [Object] },
-62 silly install resolved     _id: 'moment@2.11.1',
-62 silly install resolved     dist:
-62 silly install resolved      { shasum: 'bf4026413640d1b802467cf353607f8464d6af47',
-62 silly install resolved        tarball: 'http://registry.npmjs.org/moment/-/moment-2.11.1.tgz' },
-62 silly install resolved     _from: 'moment@*',
-62 silly install resolved     _npmVersion: '1.4.6',
-62 silly install resolved     _npmUser: { name: 'ichernev', email: 'iskren.chernev@gmail.com' },
-62 silly install resolved     maintainers: [ [Object], [Object] ],
-62 silly install resolved     directories: {},
-62 silly install resolved     _shasum: 'bf4026413640d1b802467cf353607f8464d6af47',
-62 silly install resolved     _resolved: 'https://registry.npmjs.org/moment/-/moment-2.11.1.tgz',
-62 silly install resolved     readme: 'ERROR: No README data found!' } ]
-63 info install moment@2.11.1 into /Users/Quinn/Documents/Setmine/bitchange
-64 info installOne moment@2.11.1
-65 verbose installOne of moment to /Users/Quinn/Documents/Setmine/bitchange not in flight; installing
-66 verbose lock using /Users/Quinn/.npm/_locks/moment-e6be62d8fddc1d67.lock for /Users/Quinn/Documents/Setmine/bitchange/node_modules/moment
-67 silly install write writing moment 2.11.1 to /Users/Quinn/Documents/Setmine/bitchange/node_modules/moment
-68 verbose unbuild node_modules/moment
-69 info preuninstall moment@2.11.1
-70 info uninstall moment@2.11.1
-71 verbose unbuild rmStuff moment@2.11.1 from /Users/Quinn/Documents/Setmine/bitchange/node_modules
-72 info postuninstall moment@2.11.1
-73 silly gentlyRm /Users/Quinn/Documents/Setmine/bitchange/node_modules/moment is being purged from base /Users/Quinn/Documents/Setmine/bitchange
-74 verbose gentlyRm don't care about contents; nuking /Users/Quinn/Documents/Setmine/bitchange/node_modules/moment
-75 silly vacuum-fs purging /Users/Quinn/Documents/Setmine/bitchange/node_modules/moment
-76 silly vacuum-fs quitting because other entries in /Users/Quinn/Documents/Setmine/bitchange/node_modules
-77 verbose tar unpack /Users/Quinn/.npm/moment/2.11.1/package.tgz
-78 verbose tar unpacking to /Users/Quinn/Documents/Setmine/bitchange/node_modules/moment
-79 silly gentlyRm /Users/Quinn/Documents/Setmine/bitchange/node_modules/moment is being purged
-80 verbose gentlyRm don't care about contents; nuking /Users/Quinn/Documents/Setmine/bitchange/node_modules/moment
-81 silly gunzTarPerm modes [ '755', '644' ]
-82 silly gunzTarPerm extractEntry package.json
-83 silly gunzTarPerm extractEntry README.md
-84 silly gunzTarPerm extractEntry LICENSE
-85 silly gunzTarPerm extractEntry ender.js
-86 silly gunzTarPerm extractEntry moment.js
-87 silly gunzTarPerm extractEntry package.js
-88 silly gunzTarPerm extractEntry CHANGELOG.md
-89 silly gunzTarPerm extractEntry locale/af.js
-90 silly gunzTarPerm extractEntry locale/id.js
-91 silly gunzTarPerm extractEntry locale/is.js
-92 silly gunzTarPerm extractEntry locale/it.js
-93 silly gunzTarPerm extractEntry locale/ja.js
-94 silly gunzTarPerm extractEntry locale/hy-am.js
-95 silly gunzTarPerm extractEntry locale/ka.js
-96 silly gunzTarPerm extractEntry locale/kk.js
-97 silly gunzTarPerm extractEntry locale/km.js
-98 silly gunzTarPerm extractEntry locale/ko.js
-99 silly gunzTarPerm extractEntry locale/lb.js
-100 silly gunzTarPerm extractEntry locale/hu.js
-101 silly gunzTarPerm extractEntry locale/lo.js
-102 silly gunzTarPerm extractEntry locale/hr.js
-103 silly gunzTarPerm extractEntry locale/lt.js
-104 silly gunzTarPerm extractEntry locale/hi.js
-105 silly gunzTarPerm extractEntry locale/lv.js
-106 silly gunzTarPerm extractEntry locale/he.js
-107 silly gunzTarPerm extractEntry locale/me.js
-108 silly gunzTarPerm extractEntry locale/gl.js
-109 silly gunzTarPerm extractEntry locale/mk.js
-110 silly gunzTarPerm extractEntry locale/gd.js
-111 silly gunzTarPerm extractEntry locale/ml.js
-112 silly gunzTarPerm extractEntry locale/fy.js
-113 silly gunzTarPerm extractEntry locale/mr.js
-114 silly gunzTarPerm extractEntry locale/fr.js
-115 silly gunzTarPerm extractEntry locale/ms-my.js
-116 silly gunzTarPerm extractEntry locale/fr-ch.js
-117 silly gunzTarPerm extractEntry locale/ms.js
-118 silly gunzTarPerm extractEntry locale/fr-ca.js
-119 silly gunzTarPerm extractEntry locale/my.js
-120 silly gunzTarPerm extractEntry locale/fo.js
-121 silly gunzTarPerm extractEntry locale/nb.js
-122 silly gunzTarPerm extractEntry locale/fi.js
-123 silly gunzTarPerm extractEntry locale/ne.js
-124 silly gunzTarPerm extractEntry locale/fa.js
-125 silly gunzTarPerm extractEntry locale/nl.js
-126 silly gunzTarPerm extractEntry locale/eu.js
-127 silly gunzTarPerm extractEntry locale/nn.js
-128 silly gunzTarPerm extractEntry locale/et.js
-129 silly gunzTarPerm extractEntry locale/pl.js
-130 silly gunzTarPerm extractEntry locale/es.js
-131 silly gunzTarPerm extractEntry locale/pt-br.js
-132 silly gunzTarPerm extractEntry locale/eo.js
-133 silly gunzTarPerm extractEntry locale/pt.js
-134 silly gunzTarPerm extractEntry locale/en-nz.js
-135 silly gunzTarPerm extractEntry locale/ro.js
-136 silly gunzTarPerm extractEntry locale/en-ie.js
-137 silly gunzTarPerm extractEntry locale/ru.js
-138 silly gunzTarPerm extractEntry locale/en-gb.js
-139 silly gunzTarPerm extractEntry locale/se.js
-140 silly gunzTarPerm extractEntry locale/en-ca.js
-141 silly gunzTarPerm extractEntry locale/si.js
-142 silly gunzTarPerm extractEntry locale/en-au.js
-143 silly gunzTarPerm extractEntry locale/sk.js
-144 silly gunzTarPerm extractEntry locale/el.js
-145 silly gunzTarPerm extractEntry locale/sl.js
-146 silly gunzTarPerm extractEntry locale/dv.js
-147 silly gunzTarPerm extractEntry locale/sq.js
-148 silly gunzTarPerm extractEntry locale/de.js
-149 silly gunzTarPerm extractEntry locale/sr-cyrl.js
-150 silly gunzTarPerm extractEntry locale/de-at.js
-151 silly gunzTarPerm extractEntry locale/sr.js
-152 silly gunzTarPerm extractEntry locale/da.js
-153 silly gunzTarPerm extractEntry locale/sv.js
-154 silly gunzTarPerm extractEntry locale/cy.js
-155 silly gunzTarPerm extractEntry locale/sw.js
-156 silly gunzTarPerm extractEntry locale/cv.js
-157 silly gunzTarPerm extractEntry locale/ta.js
-158 silly gunzTarPerm extractEntry locale/cs.js
-159 silly gunzTarPerm extractEntry locale/te.js
-160 silly gunzTarPerm extractEntry locale/ca.js
-161 silly gunzTarPerm extractEntry locale/th.js
-162 silly gunzTarPerm extractEntry locale/bs.js
-163 silly gunzTarPerm extractEntry locale/tl-ph.js
-164 silly gunzTarPerm extractEntry locale/br.js
-165 silly gunzTarPerm extractEntry locale/tlh.js
-166 silly gunzTarPerm extractEntry locale/bo.js
-167 silly gunzTarPerm extractEntry locale/tr.js
-168 silly gunzTarPerm extractEntry locale/bn.js
-169 silly gunzTarPerm extractEntry locale/tzl.js
-170 silly gunzTarPerm extractEntry locale/bg.js
-171 silly gunzTarPerm extractEntry locale/tzm-latn.js
-172 silly gunzTarPerm extractEntry locale/be.js
-173 silly gunzTarPerm extractEntry locale/tzm.js
-174 silly gunzTarPerm extractEntry locale/az.js
-175 silly gunzTarPerm extractEntry locale/uk.js
-176 silly gunzTarPerm extractEntry locale/ar.js
-177 silly gunzTarPerm extractEntry locale/uz.js
-178 silly gunzTarPerm extractEntry locale/ar-tn.js
-179 silly gunzTarPerm extractEntry locale/vi.js
-180 silly gunzTarPerm extractEntry locale/ar-sa.js
-181 silly gunzTarPerm extractEntry locale/zh-cn.js
-182 silly gunzTarPerm extractEntry locale/ar-ma.js
-183 silly gunzTarPerm extractEntry locale/zh-tw.js
-184 silly gunzTarPerm extractEntry locale/jv.js
-185 silly gunzTarPerm extractEntry min/locales.js
-186 silly gunzTarPerm extractEntry min/locales.min.js
-187 silly gunzTarPerm extractEntry min/moment-with-locales.js
-188 silly gunzTarPerm extractEntry min/moment-with-locales.min.js
-189 silly gunzTarPerm extractEntry min/moment.min.js
-190 silly gunzTarPerm extractEntry min/tests.js
-191 verbose write writing to /Users/Quinn/Documents/Setmine/bitchange/node_modules/moment/package.json
-192 info preinstall moment@2.11.1
-193 verbose readDependencies loading dependencies from /Users/Quinn/Documents/Setmine/bitchange/node_modules/moment/package.json
-194 verbose readDependencies loading dependencies from /Users/Quinn/Documents/Setmine/bitchange/node_modules/moment/package.json
-195 silly install resolved []
-196 verbose about to build /Users/Quinn/Documents/Setmine/bitchange/node_modules/moment
-197 info build /Users/Quinn/Documents/Setmine/bitchange/node_modules/moment
-198 info linkStuff moment@2.11.1
-199 silly linkStuff moment@2.11.1 has /Users/Quinn/Documents/Setmine/bitchange/node_modules as its parent node_modules
-200 verbose linkBins moment@2.11.1
-201 verbose linkMans moment@2.11.1
-202 verbose rebuildBundles moment@2.11.1
-203 info install moment@2.11.1
-204 info postinstall moment@2.11.1
-205 verbose unlock done using /Users/Quinn/.npm/_locks/moment-e6be62d8fddc1d67.lock for /Users/Quinn/Documents/Setmine/bitchange/node_modules/moment
-206 verbose validateInstall loading /Users/Quinn/Documents/Setmine/bitchange/package.json for validation
-207 verbose stack Error: The package history does not satisfy its siblings' peerDependencies requirements!
-207 verbose stack     at /Users/Quinn/.nvm/versions/node/v0.12.7/lib/node_modules/npm/lib/install.js:125:32
-207 verbose stack     at /Users/Quinn/.nvm/versions/node/v0.12.7/lib/node_modules/npm/lib/install.js:267:7
-207 verbose stack     at /Users/Quinn/.nvm/versions/node/v0.12.7/lib/node_modules/npm/node_modules/read-installed/read-installed.js:138:5
-207 verbose stack     at /Users/Quinn/.nvm/versions/node/v0.12.7/lib/node_modules/npm/node_modules/read-installed/read-installed.js:251:14
-207 verbose stack     at cb (/Users/Quinn/.nvm/versions/node/v0.12.7/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
-207 verbose stack     at /Users/Quinn/.nvm/versions/node/v0.12.7/lib/node_modules/npm/node_modules/read-installed/read-installed.js:251:14
-207 verbose stack     at cb (/Users/Quinn/.nvm/versions/node/v0.12.7/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
-207 verbose stack     at /Users/Quinn/.nvm/versions/node/v0.12.7/lib/node_modules/npm/node_modules/read-installed/read-installed.js:251:14
-207 verbose stack     at cb (/Users/Quinn/.nvm/versions/node/v0.12.7/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
-207 verbose stack     at /Users/Quinn/.nvm/versions/node/v0.12.7/lib/node_modules/npm/node_modules/read-installed/read-installed.js:251:14
-208 verbose cwd /Users/Quinn/Documents/Setmine/bitchange
-209 error Darwin 14.5.0
-210 error argv "/Users/Quinn/.nvm/versions/node/v0.12.7/bin/node" "/Users/Quinn/.nvm/versions/node/v0.12.7/bin/npm" "install" "moment" "--save"
-211 error node v0.12.7
-212 error npm  v2.11.3
-213 error code EPEERINVALID
-214 error peerinvalid The package history does not satisfy its siblings' peerDependencies requirements!
-214 error peerinvalid Peer react-router@1.0.3 wants history@^1.17.0
-215 verbose exit [ 1, true ]
+33 silly cache add args [ 'jquery', null ]
+34 verbose cache add spec jquery
+35 silly cache add parsed spec { raw: 'jquery',
+35 silly cache add   scope: null,
+35 silly cache add   name: 'jquery',
+35 silly cache add   rawSpec: '',
+35 silly cache add   spec: '*',
+35 silly cache add   type: 'range' }
+36 silly addNamed jquery@*
+37 verbose addNamed "*" is a valid semver range for jquery
+38 silly addNameRange { name: 'jquery', range: '*', hasData: false }
+39 silly mapToRegistry name jquery
+40 silly mapToRegistry using default registry
+41 silly mapToRegistry registry https://registry.npmjs.org/
+42 silly mapToRegistry uri https://registry.npmjs.org/jquery
+43 verbose addNameRange registry:https://registry.npmjs.org/jquery not in flight; fetching
+44 verbose request uri https://registry.npmjs.org/jquery
+45 verbose request no auth needed
+46 info attempt registry request try #1 at 2:04:50 PM
+47 verbose request id 208eb9a8de655f08
+48 verbose etag "YRIU6FKIE0OR8PI5V5OL0TE9"
+49 http request GET https://registry.npmjs.org/jquery
+50 http 200 https://registry.npmjs.org/jquery
+51 silly get cb [ 200,
+51 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+51 silly get     etag: '"6LDVXNNO0M3CBSJNRG1KI87G4"',
+51 silly get     'content-type': 'application/json',
+51 silly get     'cache-control': 'max-age=300',
+51 silly get     'content-length': '51634',
+51 silly get     'accept-ranges': 'bytes',
+51 silly get     date: 'Sat, 23 Jan 2016 19:04:51 GMT',
+51 silly get     via: '1.1 varnish',
+51 silly get     age: '223',
+51 silly get     connection: 'keep-alive',
+51 silly get     'x-served-by': 'cache-jfk1027-JFK',
+51 silly get     'x-cache': 'HIT',
+51 silly get     'x-cache-hits': '1',
+51 silly get     'x-timer': 'S1453575891.047847,VS0,VE0',
+51 silly get     vary: 'Accept' } ]
+52 verbose get saving jquery to /Users/Quinn/.npm/registry.npmjs.org/jquery/.cache.json
+53 silly addNameRange number 2 { name: 'jquery', range: '*', hasData: true }
+54 silly addNameRange versions [ 'jquery',
+54 silly addNameRange   [ '1.5.1',
+54 silly addNameRange     '1.6.2',
+54 silly addNameRange     '1.6.3',
+54 silly addNameRange     '1.7.2',
+54 silly addNameRange     '1.7.3',
+54 silly addNameRange     '1.8.2',
+54 silly addNameRange     '1.8.3',
+54 silly addNameRange     '2.1.0-beta2',
+54 silly addNameRange     '2.1.0-beta3',
+54 silly addNameRange     '1.11.0-beta3',
+54 silly addNameRange     '1.11.0-rc1',
+54 silly addNameRange     '2.1.0-rc1',
+54 silly addNameRange     '1.11.0',
+54 silly addNameRange     '2.1.0',
+54 silly addNameRange     '2.1.1-beta1',
+54 silly addNameRange     '1.11.1-beta1',
+54 silly addNameRange     '2.1.1-rc1',
+54 silly addNameRange     '1.11.1-rc1',
+54 silly addNameRange     '2.1.1-rc2',
+54 silly addNameRange     '1.11.1-rc2',
+54 silly addNameRange     '2.1.1',
+54 silly addNameRange     '1.11.1',
+54 silly addNameRange     '1.9.1',
+54 silly addNameRange     '2.1.2',
+54 silly addNameRange     '1.11.2',
+54 silly addNameRange     '2.1.3',
+54 silly addNameRange     '2.1.4',
+54 silly addNameRange     '1.11.3',
+54 silly addNameRange     '3.0.0-alpha1',
+54 silly addNameRange     '1.12.0',
+54 silly addNameRange     '2.2.0',
+54 silly addNameRange     '3.0.0-beta1' ] ]
+55 silly addNamed jquery@2.2.0
+56 verbose addNamed "2.2.0" is a plain semver version for jquery
+57 silly mapToRegistry name jquery
+58 silly mapToRegistry using default registry
+59 silly mapToRegistry registry https://registry.npmjs.org/
+60 silly mapToRegistry uri https://registry.npmjs.org/jquery
+61 verbose addRemoteTarball https://registry.npmjs.org/jquery/-/jquery-2.2.0.tgz not in flight; adding
+62 verbose addRemoteTarball [ 'https://registry.npmjs.org/jquery/-/jquery-2.2.0.tgz',
+62 verbose addRemoteTarball   'd0e84ebbf199da51bf7ec39307f19b35754e9cba' ]
+63 info retry fetch attempt 1 at 2:04:51 PM
+64 info attempt registry request try #1 at 2:04:51 PM
+65 http fetch GET https://registry.npmjs.org/jquery/-/jquery-2.2.0.tgz
+66 http fetch 200 https://registry.npmjs.org/jquery/-/jquery-2.2.0.tgz
+67 silly fetchAndShaCheck shasum d0e84ebbf199da51bf7ec39307f19b35754e9cba
+68 verbose addTmpTarball /var/folders/p5/5lr3_f9n0ldbh7ltkp60k3640000gn/T/npm-18502-753afdc7/registry.npmjs.org/jquery/-/jquery-2.2.0.tgz not in flight; adding
+69 verbose addTmpTarball already have metadata; skipping unpack for jquery@2.2.0
+70 silly cache afterAdd jquery@2.2.0
+71 verbose afterAdd /Users/Quinn/.npm/jquery/2.2.0/package/package.json not in flight; writing
+72 verbose afterAdd /Users/Quinn/.npm/jquery/2.2.0/package/package.json written
+73 silly install resolved [ { name: 'jquery',
+73 silly install resolved     title: 'jQuery',
+73 silly install resolved     description: 'JavaScript library for DOM operations',
+73 silly install resolved     version: '2.2.0',
+73 silly install resolved     main: 'dist/jquery.js',
+73 silly install resolved     homepage: 'http://jquery.com',
+73 silly install resolved     author:
+73 silly install resolved      { name: 'jQuery Foundation and other contributors',
+73 silly install resolved        url: 'https://github.com/jquery/jquery/blob/2.2.0/AUTHORS.txt' },
+73 silly install resolved     repository: { type: 'git', url: 'git+https://github.com/jquery/jquery.git' },
+73 silly install resolved     keywords: [ 'jquery', 'javascript', 'browser', 'library' ],
+73 silly install resolved     bugs: { url: 'https://github.com/jquery/jquery/issues' },
+73 silly install resolved     license: 'MIT',
+73 silly install resolved     dependencies: {},
+73 silly install resolved     devDependencies:
+73 silly install resolved      { commitplease: '2.0.0',
+73 silly install resolved        'core-js': '0.9.17',
+73 silly install resolved        grunt: '0.4.5',
+73 silly install resolved        'grunt-babel': '5.0.1',
+73 silly install resolved        'grunt-cli': '0.1.13',
+73 silly install resolved        'grunt-compare-size': '0.4.0',
+73 silly install resolved        'grunt-contrib-jshint': '0.11.2',
+73 silly install resolved        'grunt-contrib-uglify': '0.9.2',
+73 silly install resolved        'grunt-contrib-watch': '0.6.1',
+73 silly install resolved        'grunt-git-authors': '2.0.1',
+73 silly install resolved        'grunt-jscs': '2.1.0',
+73 silly install resolved        'grunt-jsonlint': '1.0.4',
+73 silly install resolved        'grunt-npmcopy': '0.1.0',
+73 silly install resolved        'gzip-js': '0.3.2',
+73 silly install resolved        jsdom: '5.6.1',
+73 silly install resolved        'load-grunt-tasks': '1.0.0',
+73 silly install resolved        qunitjs: '1.17.1',
+73 silly install resolved        'qunit-assert-step': '1.0.3',
+73 silly install resolved        requirejs: '2.1.17',
+73 silly install resolved        sinon: '1.10.3',
+73 silly install resolved        sizzle: '2.2.1',
+73 silly install resolved        'strip-json-comments': '1.0.3',
+73 silly install resolved        testswarm: '1.1.0',
+73 silly install resolved        'win-spawn': '2.0.0' },
+73 silly install resolved     scripts:
+73 silly install resolved      { build: 'npm install && grunt',
+73 silly install resolved        start: 'grunt watch',
+73 silly install resolved        test: 'grunt && grunt test' },
+73 silly install resolved     commitplease: { components: [Object] },
+73 silly install resolved     gitHead: '6fc01e29bdad0964f62ef56d01297039cdcadbe5',
+73 silly install resolved     _id: 'jquery@2.2.0',
+73 silly install resolved     _shasum: 'd0e84ebbf199da51bf7ec39307f19b35754e9cba',
+73 silly install resolved     _from: 'jquery@*',
+73 silly install resolved     _npmVersion: '3.3.12',
+73 silly install resolved     _nodeVersion: '5.2.0',
+73 silly install resolved     _npmUser: { name: 'timmywil', email: 'timmywillisn@gmail.com' },
+73 silly install resolved     maintainers: [ [Object], [Object], [Object], [Object] ],
+73 silly install resolved     dist:
+73 silly install resolved      { shasum: 'd0e84ebbf199da51bf7ec39307f19b35754e9cba',
+73 silly install resolved        tarball: 'http://registry.npmjs.org/jquery/-/jquery-2.2.0.tgz' },
+73 silly install resolved     directories: {},
+73 silly install resolved     _resolved: 'https://registry.npmjs.org/jquery/-/jquery-2.2.0.tgz' } ]
+74 info install jquery@2.2.0 into /Users/Quinn/Documents/Setmine/bitchange
+75 info installOne jquery@2.2.0
+76 verbose installOne of jquery to /Users/Quinn/Documents/Setmine/bitchange not in flight; installing
+77 verbose lock using /Users/Quinn/.npm/_locks/jquery-d8f9f2022f54827d.lock for /Users/Quinn/Documents/Setmine/bitchange/node_modules/jquery
+78 silly install write writing jquery 2.2.0 to /Users/Quinn/Documents/Setmine/bitchange/node_modules/jquery
+79 verbose unbuild node_modules/jquery
+80 silly gentlyRm /Users/Quinn/Documents/Setmine/bitchange/node_modules/jquery is being purged from base /Users/Quinn/Documents/Setmine/bitchange
+81 verbose gentlyRm don't care about contents; nuking /Users/Quinn/Documents/Setmine/bitchange/node_modules/jquery
+82 verbose tar unpack /Users/Quinn/.npm/jquery/2.2.0/package.tgz
+83 verbose tar unpacking to /Users/Quinn/Documents/Setmine/bitchange/node_modules/jquery
+84 silly gentlyRm /Users/Quinn/Documents/Setmine/bitchange/node_modules/jquery is being purged
+85 verbose gentlyRm don't care about contents; nuking /Users/Quinn/Documents/Setmine/bitchange/node_modules/jquery
+86 silly gunzTarPerm modes [ '755', '644' ]
+87 silly gunzTarPerm extractEntry package.json
+88 silly gunzTarPerm extractEntry README.md
+89 silly gunzTarPerm extractEntry AUTHORS.txt
+90 silly gunzTarPerm extractEntry LICENSE.txt
+91 silly gunzTarPerm extractEntry bower.json
+92 silly gunzTarPerm extractEntry dist/jquery.js
+93 silly gunzTarPerm extractEntry dist/jquery.min.js
+94 silly gunzTarPerm extractEntry dist/jquery.min.map
+95 silly gunzTarPerm extractEntry src/wrap.js
+96 silly gunzTarPerm extractEntry src/css.js
+97 silly gunzTarPerm extractEntry src/selector.js
+98 silly gunzTarPerm extractEntry src/data.js
+99 silly gunzTarPerm extractEntry src/serialize.js
+100 silly gunzTarPerm extractEntry src/deprecated.js
+101 silly gunzTarPerm extractEntry src/dimensions.js
+102 silly gunzTarPerm extractEntry src/selector-sizzle.js
+103 silly gunzTarPerm extractEntry src/effects.js
+104 silly gunzTarPerm extractEntry src/selector-native.js
+105 silly gunzTarPerm extractEntry src/core.js
+106 silly gunzTarPerm extractEntry src/queue.js
+107 silly gunzTarPerm extractEntry src/support.js
+108 silly gunzTarPerm extractEntry src/outro.js
+109 silly gunzTarPerm extractEntry src/callbacks.js
+110 silly gunzTarPerm extractEntry src/intro.js
+111 silly gunzTarPerm extractEntry src/attributes.js
+112 silly gunzTarPerm extractEntry src/jquery.js
+113 silly gunzTarPerm extractEntry src/traversing.js
+114 silly gunzTarPerm extractEntry src/offset.js
+115 silly gunzTarPerm extractEntry src/ajax.js
+116 silly gunzTarPerm extractEntry src/manipulation.js
+117 silly gunzTarPerm extractEntry src/deferred.js
+118 silly gunzTarPerm extractEntry src/event.js
+119 silly gunzTarPerm extractEntry src/data/Data.js
+120 silly gunzTarPerm extractEntry src/data/accepts.js
+121 silly gunzTarPerm extractEntry src/data/support.js
+122 silly gunzTarPerm extractEntry src/data/var/acceptData.js
+123 silly gunzTarPerm extractEntry src/data/var/dataPriv.js
+124 silly gunzTarPerm extractEntry src/data/var/dataUser.js
+125 silly gunzTarPerm extractEntry src/manipulation/_evalUrl.js
+126 silly gunzTarPerm extractEntry src/manipulation/buildFragment.js
+127 silly gunzTarPerm extractEntry src/manipulation/createSafeFragment.js
+128 silly gunzTarPerm extractEntry src/manipulation/getAll.js
+129 silly gunzTarPerm extractEntry src/manipulation/setGlobalEval.js
+130 silly gunzTarPerm extractEntry src/manipulation/support.js
+131 silly gunzTarPerm extractEntry src/manipulation/wrapMap.js
+132 silly gunzTarPerm extractEntry src/manipulation/var/nodeNames.js
+133 silly gunzTarPerm extractEntry src/manipulation/var/rcheckableType.js
+134 silly gunzTarPerm extractEntry src/manipulation/var/rleadingWhitespace.js
+135 silly gunzTarPerm extractEntry src/manipulation/var/rscriptType.js
+136 silly gunzTarPerm extractEntry src/manipulation/var/rtagName.js
+137 silly gunzTarPerm extractEntry src/queue/delay.js
+138 silly gunzTarPerm extractEntry src/ajax/jsonp.js
+139 silly gunzTarPerm extractEntry src/ajax/load.js
+140 silly gunzTarPerm extractEntry src/ajax/parseJSON.js
+141 silly gunzTarPerm extractEntry src/ajax/parseXML.js
+142 silly gunzTarPerm extractEntry src/ajax/script.js
+143 silly gunzTarPerm extractEntry src/ajax/xhr.js
+144 silly gunzTarPerm extractEntry src/ajax/var/location.js
+145 silly gunzTarPerm extractEntry src/ajax/var/nonce.js
+146 silly gunzTarPerm extractEntry src/ajax/var/rquery.js
+147 silly gunzTarPerm extractEntry src/event/ajax.js
+148 silly gunzTarPerm extractEntry src/event/alias.js
+149 silly gunzTarPerm extractEntry src/event/focusin.js
+150 silly gunzTarPerm extractEntry src/event/support.js
+151 silly gunzTarPerm extractEntry src/event/trigger.js
+152 silly gunzTarPerm extractEntry src/effects/Tween.js
+153 silly gunzTarPerm extractEntry src/effects/animatedSelector.js
+154 silly gunzTarPerm extractEntry src/effects/support.js
+155 silly gunzTarPerm extractEntry src/exports/amd.js
+156 silly gunzTarPerm extractEntry src/exports/global.js
+157 silly gunzTarPerm extractEntry src/css/addGetHookIf.js
+158 silly gunzTarPerm extractEntry src/css/adjustCSS.js
+159 silly gunzTarPerm extractEntry src/css/curCSS.js
+160 silly gunzTarPerm extractEntry src/css/defaultDisplay.js
+161 silly gunzTarPerm extractEntry src/css/hiddenVisibleSelectors.js
+162 silly gunzTarPerm extractEntry src/css/showHide.js
+163 silly gunzTarPerm extractEntry src/css/support.js
+164 silly gunzTarPerm extractEntry src/css/var/cssExpand.js
+165 silly gunzTarPerm extractEntry src/css/var/getStyles.js
+166 silly gunzTarPerm extractEntry src/css/var/isHidden.js
+167 silly gunzTarPerm extractEntry src/css/var/rmargin.js
+168 silly gunzTarPerm extractEntry src/css/var/rnumnonpx.js
+169 silly gunzTarPerm extractEntry src/css/var/swap.js
+170 silly gunzTarPerm extractEntry src/core/access.js
+171 silly gunzTarPerm extractEntry src/core/init.js
+172 silly gunzTarPerm extractEntry src/core/parseHTML.js
+173 silly gunzTarPerm extractEntry src/core/ready.js
+174 silly gunzTarPerm extractEntry src/core/support.js
+175 silly gunzTarPerm extractEntry src/core/var/rsingleTag.js
+176 silly gunzTarPerm extractEntry src/traversing/findFilter.js
+177 silly gunzTarPerm extractEntry src/traversing/var/dir.js
+178 silly gunzTarPerm extractEntry src/traversing/var/rneedsContext.js
+179 silly gunzTarPerm extractEntry src/traversing/var/siblings.js
+180 silly gunzTarPerm extractEntry src/attributes/attr.js
+181 silly gunzTarPerm extractEntry src/attributes/classes.js
+182 silly gunzTarPerm extractEntry src/attributes/prop.js
+183 silly gunzTarPerm extractEntry src/attributes/support.js
+184 silly gunzTarPerm extractEntry src/attributes/val.js
+185 silly gunzTarPerm extractEntry src/var/arr.js
+186 silly gunzTarPerm extractEntry src/var/document.js
+187 silly gunzTarPerm extractEntry src/var/documentElement.js
+188 silly gunzTarPerm extractEntry src/var/hasOwn.js
+189 silly gunzTarPerm extractEntry src/var/deletedIds.js
+190 silly gunzTarPerm extractEntry src/var/pnum.js
+191 silly gunzTarPerm extractEntry src/var/push.js
+192 silly gunzTarPerm extractEntry src/var/rcssNum.js
+193 silly gunzTarPerm extractEntry src/var/rnotwhite.js
+194 silly gunzTarPerm extractEntry src/var/slice.js
+195 silly gunzTarPerm extractEntry src/var/concat.js
+196 silly gunzTarPerm extractEntry src/var/support.js
+197 silly gunzTarPerm extractEntry src/var/class2type.js
+198 silly gunzTarPerm extractEntry src/var/toString.js
+199 silly gunzTarPerm extractEntry src/var/indexOf.js
+200 silly gunzTarPerm extractEntry src/.jshintrc
+201 verbose write writing to /Users/Quinn/Documents/Setmine/bitchange/node_modules/jquery/package.json
+202 info preinstall jquery@2.2.0
+203 verbose readDependencies loading dependencies from /Users/Quinn/Documents/Setmine/bitchange/node_modules/jquery/package.json
+204 verbose readDependencies loading dependencies from /Users/Quinn/Documents/Setmine/bitchange/node_modules/jquery/package.json
+205 silly install resolved []
+206 verbose about to build /Users/Quinn/Documents/Setmine/bitchange/node_modules/jquery
+207 info build /Users/Quinn/Documents/Setmine/bitchange/node_modules/jquery
+208 info linkStuff jquery@2.2.0
+209 silly linkStuff jquery@2.2.0 has /Users/Quinn/Documents/Setmine/bitchange/node_modules as its parent node_modules
+210 verbose linkBins jquery@2.2.0
+211 verbose linkMans jquery@2.2.0
+212 verbose rebuildBundles jquery@2.2.0
+213 info install jquery@2.2.0
+214 info postinstall jquery@2.2.0
+215 verbose unlock done using /Users/Quinn/.npm/_locks/jquery-d8f9f2022f54827d.lock for /Users/Quinn/Documents/Setmine/bitchange/node_modules/jquery
+216 verbose validateInstall loading /Users/Quinn/Documents/Setmine/bitchange/package.json for validation
+217 verbose stack Error: The package history does not satisfy its siblings' peerDependencies requirements!
+217 verbose stack     at /Users/Quinn/.nvm/versions/node/v0.12.7/lib/node_modules/npm/lib/install.js:125:32
+217 verbose stack     at /Users/Quinn/.nvm/versions/node/v0.12.7/lib/node_modules/npm/lib/install.js:267:7
+217 verbose stack     at /Users/Quinn/.nvm/versions/node/v0.12.7/lib/node_modules/npm/node_modules/read-installed/read-installed.js:138:5
+217 verbose stack     at /Users/Quinn/.nvm/versions/node/v0.12.7/lib/node_modules/npm/node_modules/read-installed/read-installed.js:251:14
+217 verbose stack     at cb (/Users/Quinn/.nvm/versions/node/v0.12.7/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+217 verbose stack     at /Users/Quinn/.nvm/versions/node/v0.12.7/lib/node_modules/npm/node_modules/read-installed/read-installed.js:251:14
+217 verbose stack     at cb (/Users/Quinn/.nvm/versions/node/v0.12.7/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+217 verbose stack     at /Users/Quinn/.nvm/versions/node/v0.12.7/lib/node_modules/npm/node_modules/read-installed/read-installed.js:251:14
+217 verbose stack     at cb (/Users/Quinn/.nvm/versions/node/v0.12.7/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+217 verbose stack     at /Users/Quinn/.nvm/versions/node/v0.12.7/lib/node_modules/npm/node_modules/read-installed/read-installed.js:251:14
+218 verbose cwd /Users/Quinn/Documents/Setmine/bitchange
+219 error Darwin 14.5.0
+220 error argv "/Users/Quinn/.nvm/versions/node/v0.12.7/bin/node" "/Users/Quinn/.nvm/versions/node/v0.12.7/bin/npm" "install" "jquery" "--save"
+221 error node v0.12.7
+222 error npm  v2.11.3
+223 error code EPEERINVALID
+224 error peerinvalid The package history does not satisfy its siblings' peerDependencies requirements!
+224 error peerinvalid Peer react-router@1.0.3 wants history@^1.17.0
+225 verbose exit [ 1, true ]

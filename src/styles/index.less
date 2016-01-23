@@ -17,6 +17,9 @@
 @yellow: #f5d76e;
 
 // mixins
+.center {
+	margin: auto;
+}
 .color(@bg, @txt) {
 	background-color: @bg;
 	color: @txt;
@@ -25,12 +28,13 @@
 	display: flex;
 	flex-direction: @direction;
 	flex-wrap: @wrap;
+	position: relative;
 }
 .flex-row {
-	.flexContainer(row, wrap)
+	.flexContainer(row, wrap);
 }
 .flex-column {
-	.flexContainer(column, nowrap)
+	.flexContainer(column, nowrap);
 }
 .flex {
 	flex: 1 1 auto;
@@ -127,6 +131,27 @@ p {
 	overflow-y: scroll!important;
 }
 
-#jar {
+.jar {
 	height: 100vh/2;
+	width: 100%;
+}
+
+.glass {
+	height: 65%;
+	width: 40%;
+	color: @navy;
+	border: solid 8px;
+	border-bottom: 10px solid;
+	border-radius: 0 0 20% 20%;
+	border-top: 0;
+	position: relative;
+}
+
+#change {
+	background: @green;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	border-radius: 0 0 24px 24px;
+
 }

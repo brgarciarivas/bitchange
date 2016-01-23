@@ -1,14 +1,11 @@
 import React from 'react'
 import Immutable from 'immutable'
 import GlobalEventHandler from '../scripts/globalEventHandler'
-import injectTapEventPlugin from 'react-tap-event-plugin'
 
 // theme setup
 import ThemeManager from 'material-ui/lib/styles/theme-manager'
 import DankMemes from '../constants/dankmemes'
 import Base from './Base'
-
-injectTapEventPlugin()
 
 let testDate = new Date()
 let initialAppState = Immutable.Map({
