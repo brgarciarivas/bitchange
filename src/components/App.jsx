@@ -30,22 +30,15 @@ export default class App extends Base {
 	getChildContext() {
 		push: push
 	}
-	test() {
-		let lol = this.state.appState.get('test')
-		lol = lol + 1
-		push({
-			type: 'SHALLOW_MERGE', 
-			data: {
-				test: lol
-			}
-		})
-	}
 	render() {
 		var test = this.state.appState.get('test')
-		console.log(this.state.appState)
 		return (
-			<div onClick={this.test}>
-				<p>{test}</p>
+			<div>
+				{
+					React.cloneElement(this.props.children, {
+						appState: this.state.appState
+					})
+				}
 			</div>
 		)
 	}
