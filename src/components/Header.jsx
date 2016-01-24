@@ -26,7 +26,7 @@ export default class Header extends Base {
 
 		return (
 			<header className='flex-column'>
-				<h3>{header}</h3>
+				<h4>{header}</h4>
 				{this.showImage(activeGoal.id, balance, activeGoal.goal)}
 				<Balance appState={appState} />
 				<DropDown appState={appState} />

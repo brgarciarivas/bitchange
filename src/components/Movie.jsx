@@ -4,7 +4,7 @@ import FontIcon from 'material-ui/lib/font-icon'
 
 var icon = {
 	margin: 'auto',
-	fontSize: '160px',
+	fontSize: '220px',
 	zIndex: '2'
 }
 
@@ -14,7 +14,7 @@ export default class Movie extends Base {
 	}
 	render() {
 		var {balance, goal} = this.props
-		var height = (balance/goal)*100
+		var height = ((balance/goal)*100) - 35
 		height = parseInt(height)
 
 		var progress = {
@@ -25,7 +25,7 @@ export default class Movie extends Base {
 				<FontIcon style={icon} className='material-icons'>
 					local_activity
 				</FontIcon>
-				<div className='progress hidden' style={progress}/>
+				<div className='progress' style={progress}/>
 			</div>
 		)
 	}

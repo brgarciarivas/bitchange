@@ -13,22 +13,24 @@ const dank = {
 	yellow: '#f5d76e',
 	blue: '#22a7f0',
 	blue2: '#2196F3',
+	blue3: '#89C4F4',
 	red: '#f9575a',
+	lightRed: '#f37074'
 }
 
 export default {
 	spacing: Spacing,
 	palette: {
-		primary1Color: dank.red,
+		primary1Color: dank.navy,
 		primary2Color: ColorManipulator.darken(dank.red, 0.15),
 		primary3Color: ColorManipulator.darken(dank.red, 0.3),
-		accent1Color: dank.blue2,
+		accent1Color: dank.red,
 		accent2Color: dank.lightGray,
 		accent3Color: dank.gray,
 		textColor: dank.navy,
 		alternateTextColor: dank.white,
 		canvasColor: dank.white,
-		borderColor: dank.gray,
+		borderColor: dank.navy,
 		disabledColor: ColorManipulator.fade(dank.navy, 0.3),
 		pickerHeaderColor: dank.red
 	}

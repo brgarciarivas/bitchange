@@ -7,12 +7,15 @@
 
 @purple: #9b59b6;
 @blue: #22a7f0;
+@lightBlue: #89C4F4;
+@lightBlue: #6cceec;
 @lightGray: #dadfe1;
 @gray: #bdc3c7;
 @navy: #313542;
 @white: #f4f4f4;
 @orange: #f78e57;
 @red: #f9575a;
+@lightRed: #f37074;
 @salmon: #ff8181;
 @green: #2ecc71;
 @yellow: #f5d76e;
@@ -21,6 +24,23 @@
 .animation(@time: 0.2s, @delay: 0s) {
 	animation-duration: @time!important;
 	animation-delay: @delay!important;
+}
+.card(@level: 1) {
+    & when (@level = 1) {
+        box-shadow: 0 1px 4px 0 rgba(49, 53, 66, 0.37);
+    }
+    & when (@level = 2) {
+        box-shadow: 0 6px 10px 0 rgba(49, 53, 66, 0.3), 0 2px 2px 0 rgba(49, 53, 66, 0.2);
+    }
+    & when (@level = 3) {
+        box-shadow: 0 13px 25px 0 rgba(49, 53, 66, 0.3), 0 11px 7px 0 rgba(0, 0, 0, 0.19);
+    }
+    & when (@level = 4) {
+        box-shadow: 0 20px 40px 0 rgba(49, 53, 66, 0.3), 0 14px 12px 0 rgba(49, 53, 66, 0.17);
+    }
+    & when (@level = 5) {
+        box-shadow: 0 27px 55px 0 rgba(49, 53, 66, 0.3), 0 17px 17px 0 rgba(49, 53, 66, 0.15);
+    }
 }
 .center {
 	margin: auto;
@@ -138,13 +158,13 @@ p {
 	text-align: center;
 	p {
 		margin-top: 0;
-		color: @gray;
+		color: fade(@navy, 54%);
 	}
 }
 .progressBase {
 	position: absolute;
 	bottom: 0;
-	background: @green;
+	background: @lightRed;
 	max-height: 100%;
 	overflow: hidden!important;
 	.transition(height, 0.5s);
@@ -171,9 +191,11 @@ p {
 }
 
 header {
-	height: @pageHeight*2/3;
-	h3 {
+	.color(@lightBlue, @navy);
+	// height: 70vh;
+	h4 {
 		margin: 3rem;
+		text-align: center;
 	}
 }
 #home {
@@ -197,6 +219,8 @@ header {
 	&:extend(.progressBase);
 	width: 112px;
 	z-index: 1;
+	bottom: 39px;
+	left: 35%;
 }
 #qr {
 	display: flex;
