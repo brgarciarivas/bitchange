@@ -45,7 +45,7 @@ class Places extends Base {
 		var subHeader = appState.get('subHeader')
 
 		return (
-			<div>
+			<div style={{marginBottom: '9rem'}} >
 				<List subheader={subHeader}>
 					{
 						vendors.map((vendor, index) => {
@@ -55,7 +55,8 @@ class Places extends Base {
 								style={{ cursor: 'pointer' }}
 								leftAvatar={<Avatar />}
 								primaryText={vendor.name}
-								secondaryText={vendor.address} />
+								secondaryText={vendor.address}
+								rightIcon={<p style={{right: '2rem'}}>{vendor.price}</p>} />
 						})
 					}
 				</List>
