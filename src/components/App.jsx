@@ -32,7 +32,7 @@ var initialAppState = Immutable.Map({
 			id: 4,
 			date: testDate,
 			amount: .65
-		},
+		}
 	],
 	types: [
 		{

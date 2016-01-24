@@ -4,7 +4,8 @@
   "description": "get change in bitcoins",
   "main": "index.js",
   "scripts": {
-    "test": "webpack-dev-server --progress --colors"
+    "test": "webpack-dev-server --progress --colors",
+    "start": "node server"
   },
   "repository": {
     "type": "git",

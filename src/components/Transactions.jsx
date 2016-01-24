@@ -16,15 +16,19 @@ class Transactions extends Base {
 	}
 	createNewTransaction() {
 		console.log('new transaction')
-		this.context.push({
-			open: true
-		})
+		api.get('https://bitbybite.herokuapp.com/getAddress')
+			.then(res => {
+                console.log(res);
+        		this.context.push({
+        			open: true
+        		});
+            });
 	}
 	getTransactions() {
 		console.log('fetching transactions...')
 	}
 	appendTypes(transactions) {
-		
+
 	}
 	render() {
 		var appState = this.context.appState;
@@ -46,7 +50,7 @@ class Transactions extends Base {
 				<List subheader='TRANSACTIONS'>
 					{
 						transactions.map((trans, index) => {
-							return <ListItem 
+							return <ListItem
 								key={index}
 								style={{ cursor: 'pointer' }}
 								leftAvatar={<Avatar />}
