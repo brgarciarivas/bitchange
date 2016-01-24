@@ -24,6 +24,8 @@ export default class Header extends Base {
 		var balance = appState.get('balance').balance
 		var header = appState.get('header')
 
+		console.log(activeGoal.goal == balance)
+
 		return (
 			<header className='flex-column'>
 				<h3>{header}</h3>
