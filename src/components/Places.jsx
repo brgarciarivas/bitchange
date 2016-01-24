@@ -26,17 +26,17 @@ class Places extends Base {
 				if(res.status == false) {
 					this.context.push({
 						vendors: res.vendors,
-						header: 'I want to buy...',
-						subHeader: 'PAYING OUT'
+						header: 'I\'m saving for...',
+						subHeader: 'GET MORE BITCOIN'
 					})
 				} else {
 					this.context.push({
 						vendors: res.vendors,
-						header: 'I can afford...',
-						subHeader: 'NEAR YOU'
+						header: 'I saved enough for...',
+						subHeader: 'REWARD YOURSELF'
 					})
 				}
-				
+
 			})
 	}
 	render() {
@@ -53,13 +53,13 @@ class Places extends Base {
 							return <ListItem
 								key={index}
 								style={{ cursor: 'pointer' }}
-								leftAvatar={<Avatar />}
+								leftAvatar={<Avatar src={vendor.image_url} />}
 								primaryText={vendor.name}
 								secondaryText={vendor.address} />
 						})
 					}
 				</List>
-				
+
 			</div>
 		)
 	}
