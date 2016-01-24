@@ -1,5 +1,5 @@
 import React from 'react'
-import base from './Base'
+import Base from './Base'
 import api from '../scripts/api'
 
 import Dialog from 'material-ui/lib/dialog'

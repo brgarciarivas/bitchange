@@ -40,6 +40,7 @@ var initialAppState = Immutable.Map({
 		}
 	],
 	user: {},
+	qrCode: 'jet fuel cant melt steel memes',
 	balance: 3,
 	goal: 25,
 	open: false,
@@ -71,7 +72,8 @@ export default class App extends Base {
 	getChildContext() {
 		return {
 			push: push,
-			muiTheme: ThemeManager.getMuiTheme(DankMemes)
+			muiTheme: ThemeManager.getMuiTheme(DankMemes),
+			appState: this.state.appState
 		}
 	}
 	render() {
@@ -89,5 +91,6 @@ export default class App extends Base {
 
 App.childContextTypes = {
 	push: React.PropTypes.func,
-	muiTheme: React.PropTypes.object
+	muiTheme: React.PropTypes.object,
+	appState: React.PropTypes.object
 }

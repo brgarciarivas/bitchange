@@ -7,11 +7,15 @@ export default class Code extends Base {
 		this.autoBind('createCode')
 	}
 	createCode() {
-
+		var qrCode = this.context.appState.get('qrCode')
 	}
 	render() {
 		return (
 			<div />
 		)
 	}
+}
+
+Code.contextTypes = {
+	appState: React.PropTypes.object
 }
