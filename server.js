@@ -24,24 +24,14 @@ app.get('/getBalance', function (req, res) {
 
 app.get('/getAccount', function (req, res) {
     client.getAccount('primary', function (err, account) {
-      var primaryAccount = new Object();
-      primaryAccount.name = account.name;
-      primaryAccount.balance = account.balance.amount;
-      primaryAccount.currency = account.currency;
-      primaryAccount.native_balance = account.native_balance.amount;
-      primaryAccount.native_balance_currency = account.native_balance.currency;
-      primaryAccount.email = account
-      res.send(primaryAccount);
+	      var primaryAccount = new Object();
+	      primaryAccount.name = account.name;
+	      primaryAccount.balance = account.balance.amount;
+	      primaryAccount.currency = account.currency;
+	      primaryAccount.native_balance = account.native_balance.amount;
+	      primaryAccount.native_balance_currency = account.native_balance.currency;
+	      res.send(primaryAccount);
     });
-});
-
-app.get('/getUser', function (req, res) {
-  client.getCurrentUser(function(err, user){
-    var current_user = new Object();
-    current_user.email = user.email;
-    current_user.name = user.name;
-    res.send(current_user);
-  });
 });
 
 app.get('/getTransactions', function (req, res) {
@@ -59,10 +49,7 @@ app.get('/getTransactions', function (req, res) {
 app.get('/getAddress', function (req, res) {
     var primaryAccount = client.getAccount('primary', function (err, account) {
         account.createAddress(null, function (err, address) {
-
-            res.send({
-                address: address.address
-            });
+            res.send(address.address);
         });
     });
 });
@@ -70,19 +57,6 @@ app.get('/getAddress', function (req, res) {
 app.get('/getLastLogin', function (req, res) {
 		console.log("Looking for login.");
 		res.send("Here's the last time you were here.");
-});
-
-app.get('/getTransaction/:id', function (req, res) {
-		console.log(req.params.id);
-		res.send("The id you requested is " + req.params.id + ".");
-});
-
-app.get('/getTransaction/:account_id/amount', function (req, res) {
-		client.getAccount('<ACCOUNT ID>', function(err, accounts) {
-				console.log('bal: ');
-		});
-		console.log(req.params.account_id.amount);
-		res.send("The amount you put in belongs here.")
 });
 
 var port = 3000;
