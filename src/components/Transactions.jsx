@@ -48,7 +48,7 @@ class Transactions extends Base {
 				<List subheader='TRANSACTIONS'>
 					{
 						transactions.map((trans, index) => {
-							return <ListItem 
+							return <ListItem
 								key={index}
 								style={{ cursor: 'pointer' }}
 								leftAvatar={<Avatar />}

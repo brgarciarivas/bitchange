@@ -9,13 +9,14 @@ var client = new coinbase.Client({
     'apiKey': settings.API_KEY,
     'apiSecret': settings.API_SECRET,
     'baseApiUri': 'https://api.sandbox.coinbase.com/v2/',
-      'tokenUri': 'https://api.sandbox.coinbase.com/oauth/token'
+    'tokenUri': 'https://api.sandbox.coinbase.com/oauth/token'
 });
 
 app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next()
-})
+  next();
+});
 
 app.get('/getBalance', function (req, res) {
   client.getAccounts({}, function(err, accounts) {
@@ -77,7 +78,7 @@ app.get('/getLastLogin', function (req, res) {
         res.send("Here's the last time you were here.");
 });
 
-var port = process.env.port || 3000;
+var port = process.env.PORT || 3000;
 
 app.listen(port, function (req, res) {
     console.log('Server is running on port ' + port);
