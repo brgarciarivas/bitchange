@@ -18,21 +18,20 @@ var initialAppState = Immutable.Map({
 	goals: {
 		1: {
 			id: 1,
-			type: 'To See A Movie',
-			reached: false,
+			type: 'A movie ticket',
+			query: 'movie',
 			goal: 0.03
 		},
 		2: {
 			id: 2,
-			type: 'A Cup of Coffee',
-			reached: false,
+			type: 'A cup of coffee',
+			query: 'coffee',
 			goal: 0.011
 		}
 	},
 	activeGoal: {
 		id: 1,
-		type: 'To See A Movie',
-		reached: false,
+		type: 'A movie ticket',
 		goal: 0.025
 	},
 	places: [

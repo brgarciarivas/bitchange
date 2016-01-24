@@ -18,6 +18,13 @@ class Places extends Base {
 		api.get('http://localhost:3000/getVendors')
 			.then(res => {
 				console.log(res)
+				if(res.status == false) {
+					this.context.push({
+						vendors: res.vendors,
+						header: 'I want to buy...'
+					})
+				}
+				
 			})
 	}
 	getGooglePlaces() {

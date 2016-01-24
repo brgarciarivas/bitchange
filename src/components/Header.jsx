@@ -10,14 +10,6 @@ export default class Header extends Base {
 		super(props)
 		this.autoBind('showImage')
 	}
-	componentWillReceiveProps(nextProps) {
-		if(nextProps.appState.get('balance').balance >= this.props.appState.get('activeGoal').goal) {
-			this.context.push({
-				header: 'I can buy...'
-			})	
-			forceUpdate()
-		}
-	}
 	showImage(active, balance, goal) {
 		switch(active) {
 			case 1:
