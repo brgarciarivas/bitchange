@@ -3,7 +3,7 @@ export default {
 		return (
 			fetch(route)
 				.then(res => res.json())
-				.catch(error => console.error(errror))
+				.catch(error => console.error(error))
 		)
 	},
 	post(route, data) {
@@ -16,6 +16,6 @@ export default {
 			body: JSON.stringify(data)
 		})
 			.then(res => res.json())
-			.catch(error => console.error(errror))
+			.catch(error => console.error(error))
 	}
 }
