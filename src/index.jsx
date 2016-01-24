@@ -12,9 +12,10 @@ let routes = (
 )
 
 let mountPoint = document.getElementById('mount-point')
+import history from './scripts/history'
 
 ReactDOM.render(
-	<Router>
+	<Router history={history}>
 		{routes}
 	</Router>
 , mountPoint)

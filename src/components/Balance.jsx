@@ -1,36 +1,40 @@
 import React from 'react'
 import Base from './Base'
+import Money from 'money-math'
 
 import api from '../scripts/api'
 
 export default class Balance extends Base {
 	constructor(props) {
 		super(props)
-		this.autoBind('getExchangeRates', 'convert')
-		this.getExchangeRates()
+		this.autoBind('getExchangeRates', 'convertToUsd')
 		this.state = {
-			exchangeRate: 1
+			dollarsPerBitcoin: 1
 		}
+		this.getExchangeRates()
 	}
-	convert(balance, goal) {
-		var rate = this.state.exchangeRate
+	convertToUsd(amount) {
+		var rate = this.state.dollarsPerBitcoin
+		return amount*rate
 	}
 	getExchangeRates() {
 		var endpoint = 'https://api.coinbase.com/v2/exchange-rates?currency=BTC'
 		api.get(endpoint).then(res => {
 			console.log(res)
-			var rate = res.data.rates.USD
-			console.log(rate)
+			var rate = parseInt(res.data.rates.USD)
 			this.setState({
-				exchangeRate: rate
+				dollarsPerBitcoin: rate
 			})
 		})
 	}
 	render() {
 		var {balance, goal} = this.props
+		var convertedBalance = Money.floatToAmount(this.convertToUsd(balance))
+		var convertedGoal = Money.floatToAmount(this.convertToUsd(goal))
 		return (
-			<div id='balance'>
-				<h3>{`${balance} / ${goal} BTC`}</h3>
+			<div id='balance' className='flex-column'>
+				<h1 style={{marginBottom:0}}>{`${balance} / ${goal} BTC`}</h1>
+				<p>{`${convertedBalance} / ${convertedGoal} USD`}</p>
 			</div>
 		)
 	}

@@ -40,13 +40,18 @@ var initialAppState = Immutable.Map({
 		}
 	],
 	user: {},
-	balance: 0,
-	goal: 20,
-	open: false
+	balance: 3,
+	goal: 25,
+	open: false,
+	menuOpen: false
 })
 
 var initApp = GlobalEventHandler(initialAppState)
-const push = initApp.push
+const pushFn = initApp.push
+const push = (data) => pushFn({
+	type: 'SHALLOW_MERGE',
+	data: data
+})
 
 export default class App extends Base {
 	constructor(props) {
@@ -58,6 +63,7 @@ export default class App extends Base {
 	}
 	componentWillMount() {
 		this.initialize()
+		console.log(typeof(this.state.appState))
 	}
 	initialize() {
 		initApp.floodGate.subscribe(newState => this.setState({ appState: newState }))
