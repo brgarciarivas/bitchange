@@ -22,11 +22,11 @@ app.use(function(req, res, next) {
 app.get('/getBalance', function (req, res) {
     client.getAccount('primary', function (err, account) {
         var balanceObject = {
-            amount: account.balance.amount,
+            balance: account.balance.amount,
+            native_balance: account.native_balance.amount,
             currency: account.balance.currency,
-            name: account.name
+            native_currency: account.balance.native_currency
         };
-
         res.send(balanceObject);
     });
 });
