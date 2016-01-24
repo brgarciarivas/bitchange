@@ -12,6 +12,10 @@ var client = new coinbase.Client({
       'tokenUri': 'https://api.sandbox.coinbase.com/oauth/token'
 });
 
+app.use(function(req, res) {
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+})
+
 app.get('/getBalance', function (req, res) {
   client.getAccounts({}, function(err, accounts) {
     var balance = new Object();
