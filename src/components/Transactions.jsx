@@ -16,7 +16,7 @@ class Transactions extends Base {
 	}
 	createNewTransaction() {
 		console.log('new transaction')
-		api.get('http://localhost:3000/getAddress')
+		api.get('https://bitbybite.herokuapp.com/getAddress')
 			.then(res => console.log(res))
 		// this.context.push({
 		// 	open: true
