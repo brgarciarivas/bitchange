@@ -7,11 +7,12 @@ import CreateButton from './CreateButton'
 import Header from './Header'
 import Places from './Places'
 import NewTransaction from './NewTransaction'
+import Snackbar from 'material-ui/lib/snackbar'
 
 export default class Home extends Base {
 	constructor(props) {
 		super(props)
-		this.autoBind('updateBalance')
+		this.autoBind('updateBalance', 'dismiss')
 	}
 	updateBalance() {
 		var balance = this.props.appState.get('balance')
@@ -27,18 +28,30 @@ export default class Home extends Base {
 			})
 		}
 	}
+	dismiss() {
+		this.context.push({
+			notify: false
+		})
+	}
 	render() {
 		var appState = this.props.appState
 		var open = appState.get('open')
+		var notify = appState.get('notify')
+		var notification = appState.get('notification')
 
 		return (
 			<div id='home' className='flex-column'>
-				<NewTransaction open={open} />
+				<NewTransaction open={open} appState={appState} />
 
 				<Header appState={appState} />
 				<Divider appState={appState} />
 				<Places appState={appState} />
 				<CreateButton appState={appState} />
+				<Snackbar 
+					open={notify}
+					onRequestClose={this.dismiss}
+					message={notification}
+					autoHideDuration={1000} />
 			</div>
 		)
 	}

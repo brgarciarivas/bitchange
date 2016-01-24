@@ -11,7 +11,7 @@ export default class Code extends Base {
 		return baseUrl
 	}
 	render() {
-		var qrCode = this.context.appState.get('qrCode')
+		var qrCode = this.props.appState.get('qrCode')
 		return (
 			<div id='qr'>
 				<img src={this.createCode(qrCode)} />

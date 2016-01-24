@@ -10,42 +10,52 @@ import Avatar from 'material-ui/lib/avatar'
 class Places extends Base {
 	constructor(props) {
 		super(props)
-		this.autoBind('getVendors', 'getGooglePlaces')
-		this.getVendors()
+		this.autoBind('getVendors')
+		this.getVendors(this.props.appState.get('activeGoal').query)
 	}
-	getVendors() {
+	componentWillReceiveProps(nextProps) {
+		if(nextProps.appState.get('activeGoal') != this.props.appState.get('activeGoal')) {
+			this.getVendors(nextProps.appState.get('activeGoal').query)
+		}
+	}
+	getVendors(query) {
 		console.log('fetching places...')
-		api.get('http://localhost:3000/getVendors')
+		api.get(`http://localhost:3000/getVendors?goal=${query}`)
 			.then(res => {
 				console.log(res)
 				if(res.status == false) {
 					this.context.push({
 						vendors: res.vendors,
-						header: 'I want to buy...'
+						header: 'I want to buy...',
+						subHeader: 'PAYING OUT'
+					})
+				} else {
+					this.context.push({
+						vendors: res.vendors,
+						header: 'I can afford...',
+						subHeader: 'NEAR YOU'
 					})
 				}
 				
 			})
 	}
-	getGooglePlaces() {
-		// get these when goalReached = true
-	}
 	render() {
 		var appState = this.props.appState;
-		var places = appState.get('places')
-		// TODO compare activeGoal.goal to balance for subheader & places
+		var vendors = appState.get('vendors')
+		var subHeader = appState.get('subHeader')
+
 		return (
 			<div>
-				<List subheader='PAYING OUT || NEAR YOU'>
+				<List subheader={subHeader}>
 					{
-						places.map((place, index) => {
+						vendors.map((vendor, index) => {
 							// distance = place.distance
 							return <ListItem
 								key={index}
 								style={{ cursor: 'pointer' }}
 								leftAvatar={<Avatar />}
-								primaryText={place.name}
-								secondaryText={place.address} />
+								primaryText={vendor.name}
+								secondaryText={vendor.address} />
 						})
 					}
 				</List>

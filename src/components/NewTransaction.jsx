@@ -11,30 +11,32 @@ import Code from './Code'
 export default class NewTransaction extends Base {
 	constructor(props) {
 		super(props)
-		this.autoBind('handlePayment', 'close', 'updateBalance')
+		this.autoBind('continue', 'cancel')
 	}
 	componentDidMount() {
 		// setInterval() 
 	}
-	close() {
+	cancel() {
 		this.context.push({
 			open: !this.props.open
 		})
 	}
-	handlePayment() {
-
-	}
-	updateBalance() {
-		api.get('http://localhost:3000/getBalance')
-			.then(res => {
-
-			})
+	continue() {
+		this.context.push({
+			open: !this.props.open,
+			notify: true
+		})
 	}
 	render() {
 		var actions = [
 			<FlatButton
 				label='Cancel'
-				onTouchTap={this.close}/>,
+				secondary={true}
+				onTouchTap={this.cancel}/>,
+			<FlatButton
+				label='Continue'
+				primary={true}
+				onTouchTap={this.continue}/>,
 		]
 
 		return (
@@ -44,8 +46,8 @@ export default class NewTransaction extends Base {
 				open={this.props.open}
 				modal={true}
 				onRequestClose={this.close} >
-				<Code />
-				Scan the QR code to receive change in Bitcoin
+				<Code appState={this.props.appState}/>
+				Scan to receive change in Bitcoin
 			</Dialog>
 		)
 	}

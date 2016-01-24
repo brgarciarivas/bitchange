@@ -40,8 +40,8 @@ export default class Balance extends Base {
 
 		return (
 			<div id='balance' className='flex-column'>
-				<h3 style={{margin:0}}>{`${balance} / ${goal} BTC`}</h3>
-				{/*<p>{`${native_balance} / ${goal} USD`}</p>*/}
+				<h3 style={{margin:0}}>{`${balance} BTC`}</h3>
+				<p>{`${native_balance} USD`}</p>
 			</div>
 		)
 	}

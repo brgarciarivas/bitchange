@@ -20,7 +20,7 @@ var initialAppState = Immutable.Map({
 			id: 1,
 			type: 'A movie ticket',
 			query: 'movie',
-			goal: 0.03
+			goal: 0.032
 		},
 		2: {
 			id: 2,
@@ -34,21 +34,23 @@ var initialAppState = Immutable.Map({
 		type: 'A movie ticket',
 		goal: 0.025
 	},
-	places: [
+	subHeader: '',
+	vendors: [
 		{
 			name: 'Sethau5 2.0',
 			address: '1000 W. Las Olad Blvd',
 			distance: '2.5 mi'
 		}
 	],
-	account: {},
-	qrCode: 'QR cant melt steel memes',
+	qrCode: 'nope',
 	balance: {
 		balance: 10,
 		native_balance: 0
 	},
 	goal: 25,
-	open: false
+	open: false,
+	notify: false,
+	notification: 'Payment processing'
 })
 
 var initApp = GlobalEventHandler(initialAppState)
