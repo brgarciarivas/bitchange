@@ -14,7 +14,7 @@ import Base from './Base'
 
 var testDate = new Date()
 var initialAppState = Immutable.Map({
-	header: 'I Want ...',
+	header: 'I\'m saving for...',
 	goals: {
 		1: {
 			id: 1,
@@ -36,11 +36,6 @@ var initialAppState = Immutable.Map({
 	},
 	subHeader: '',
 	vendors: [
-		{
-			name: 'Sethau5 2.0',
-			address: '1000 W. Las Olad Blvd',
-			distance: '2.5 mi'
-		}
 	],
 	qrCode: 'nope',
 	balance: {
