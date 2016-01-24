@@ -20,8 +20,7 @@ class Transactions extends Base {
 			.then(res => {
                 console.log(res);
         		this.context.push({
-        			open: true,
-                    qrCode: res.address
+        			open: true
         		});
             });
 	}
