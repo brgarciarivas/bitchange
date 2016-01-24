@@ -1,8 +1,9 @@
 var express = require('express');
 var app = express();
-// var User = require('./models/User');
 var coinbase = require('coinbase');
 var settings = require('./config/settings');
+var moment = require('moment');
+var _ = require('underscore');
 
 
 var client = new coinbase.Client({
@@ -13,53 +14,61 @@ var client = new coinbase.Client({
 });
 
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
 });
 
 app.get('/getBalance', function (req, res) {
-  client.getAccounts({}, function(err, accounts) {
-    var balance = new Object();
-    balance.amount = accounts[1].balance.amount;
-    balance.currency = accounts[1].balance.currency;
-    balance.name = accounts[1].name;
-    res.send(balance);
-  });
+    client.getAccount('primary', function (err, account) {
+        var balanceObject = {
+            amount: account.balance.amount,
+            currency: account.balance.currency,
+            name: account.name
+        };
+
+        res.send(balanceObject);
+    });
 });
 
 app.get('/getAccount', function (req, res) {
     client.getAccount('primary', function (err, account) {
-      var primaryAccount = new Object();
-      primaryAccount.name = account.name;
-      primaryAccount.balance = account.balance.amount;
-      primaryAccount.currency = account.currency;
-      primaryAccount.native_balance = account.native_balance.amount;
-      primaryAccount.native_balance_currency = account.native_balance.currency;
-      primaryAccount.email = account
-      res.send(primaryAccount);
+        var primaryAccount = {
+            name: account.name,
+            balance: account.balance.amount,
+            currency: account.currency,
+            native_balance: account.native_balance.amount,
+            native_balance_currency: account.native_balance_currency,
+            email: account
+        };
+
+        res.send(primaryAccount);
     });
 });
 
 app.get('/getUser', function (req, res) {
-  client.getCurrentUser(function(err, user){
-    var current_user = new Object();
-    current_user.email = user.email;
-    current_user.name = user.name;
-    res.send(current_user);
-  });
+    client.getCurrentUser(function(err, user){
+        var current_user = {
+            email: user.email,
+            name: user.name
+        };
+
+        res.send(current_user);
+    });
 });
 
 app.get('/getTransactions', function (req, res) {
-        var responseObject = {};
-        responseObject.transactions = [];
-        client.getAccount('primary', function(err, account) {
-                account.getTransactions(null, function(err, txs) {
-                        console.log(txs);
-                        responseObject.transactions = txs
-                        res.send(responseObject);
-                });
+    var responseObject = {};
+    responseObject.transactions = [];
+    client.getAccount('primary', function(err, account) {
+        account.getTransactions(null, function(err, txs) {
+            responseObject = {
+                transactions: txs
+            };
+
+            res.send(responseObject);
         });
+    });
 });
 
 app.get('/getAddress', function (req, res) {
@@ -74,8 +83,8 @@ app.get('/getAddress', function (req, res) {
 });
 
 app.get('/getLastLogin', function (req, res) {
-        console.log("Looking for login.");
-        res.send("Here's the last time you were here.");
+    console.log("Looking for login.");
+    res.send("Here's the last time you were here.");
 });
 
 var port = process.env.PORT || 3000;
