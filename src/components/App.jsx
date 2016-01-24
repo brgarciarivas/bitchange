@@ -33,7 +33,7 @@ var initialAppState = Immutable.Map({
 		id: 1,
 		type: 'A movie ticket',
 		query: 'movie',
-		goal: 0.025
+		goal: 0.032
 	},
 	subHeader: '',
 	vendors: [
