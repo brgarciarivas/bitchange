@@ -12,7 +12,7 @@ var client = new coinbase.Client({
       'tokenUri': 'https://api.sandbox.coinbase.com/oauth/token'
 });
 
-app.use(function(req, res) {
+app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next()
 })
