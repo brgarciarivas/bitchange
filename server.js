@@ -14,6 +14,7 @@ var client = new coinbase.Client({
 
 app.use(function(req, res) {
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next()
 })
 
 app.get('/getBalance', function (req, res) {
