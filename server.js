@@ -4,6 +4,7 @@ var coinbase = require('coinbase');
 var settings = require('./config/settings');
 var moment = require('moment');
 var _ = require('underscore');
+var Vendor = require('./models/Vendor')
 
 
 var client = new coinbase.Client({
@@ -31,6 +32,14 @@ app.get('/getBalance', function (req, res) {
     });
 });
 
+app.get('/getVendors', function (req, res) {
+		new Vendor()
+		.fetchAll()
+		.then ( function (vendors) {
+				res.send(vendors.toJSON());
+		});
+});
+
 app.get('/getAccount', function (req, res) {
     client.getAccount('primary', function (err, account) {
         var primaryAccount = {
@@ -41,10 +50,15 @@ app.get('/getAccount', function (req, res) {
             native_balance_currency: account.native_balance_currency,
             email: account
         };
-
         res.send(primaryAccount);
     });
 });
+
+app.get('/getPayRequest', function (req, res) {
+		client.getAccount('primary', function (err, account) {
+				
+		})
+})
 
 app.get('/getUser', function (req, res) {
     client.getCurrentUser(function(err, user){
