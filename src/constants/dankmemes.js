@@ -8,19 +8,21 @@ const dank = {
 	lightGray: '#dadfe1',
 	gray: '#bdc3c7',
 	orange: '#f78e57',
+	deepOrange400: '#FF7043',
 	green: '#2ecc71',
 	yellow: '#f5d76e',
 	blue: '#22a7f0',
-	red: '#f9575a'
+	blue2: '#2196F3',
+	red: '#f9575a',
 }
 
 export default {
 	spacing: Spacing,
 	palette: {
-		primary1Color: dank.blue,
+		primary1Color: dank.blue2,
 		primary2Color: ColorManipulator.darken(dank.blue, 0.2),
 		primary3Color: dank.navy,
-		accent1Color: dank.red,
+		accent1Color: dank.blue2,
 		accent2Color: dank.lightGray,
 		accent3Color: dank.gray,
 		textColor: dank.navy,
