@@ -19,9 +19,9 @@ const dank = {
 export default {
 	spacing: Spacing,
 	palette: {
-		primary1Color: dank.blue2,
-		primary2Color: ColorManipulator.darken(dank.blue, 0.2),
-		primary3Color: dank.navy,
+		primary1Color: dank.red,
+		primary2Color: ColorManipulator.darken(dank.red, 0.15),
+		primary3Color: ColorManipulator.darken(dank.red, 0.3),
 		accent1Color: dank.blue2,
 		accent2Color: dank.lightGray,
 		accent3Color: dank.gray,
@@ -33,18 +33,3 @@ export default {
 		pickerHeaderColor: dank.red
 	}
 }
-
-// palette: {
-// 	primary1Color: Colors.cyan500,
-// 	primary2Color: Colors.cyan700,
-// 	primary3Color: Colors.lightBlack,
-// 	accent1Color: Colors.pinkA200,
-// 	accent2Color: Colors.grey100,
-// 	accent3Color: Colors.grey500,
-// 	textColor: Colors.darkBlack,
-// 	alternateTextColor: Colors.white,
-// 	canvasColor: Colors.white,
-// 	borderColor: Colors.grey300,
-// 	disabledColor: ColorManipulator.fade(Colors.darkBlack, 0.3),
-// 	pickerHeaderColor: Colors.cyan500
-// }

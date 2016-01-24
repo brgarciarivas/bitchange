@@ -7,6 +7,11 @@ import List from 'material-ui/lib/lists/list'
 import ListItem from 'material-ui/lib/lists/list-item'
 import Avatar from 'material-ui/lib/avatar'
 
+var style = {
+	right: '2rem',
+	width: 40
+}
+
 class Places extends Base {
 	constructor(props) {
 		super(props)
@@ -27,13 +32,15 @@ class Places extends Base {
 					this.context.push({
 						vendors: res.vendors,
 						header: 'I want to buy...',
-						subHeader: 'PAYING OUT'
+						subHeader: 'PAYING OUT',
+						afford: false
 					})
 				} else {
 					this.context.push({
 						vendors: res.vendors,
 						header: 'I can afford...',
-						subHeader: 'NEAR YOU'
+						subHeader: 'NEAR YOU',
+						afford: true
 					})
 				}
 				
@@ -43,20 +50,22 @@ class Places extends Base {
 		var appState = this.props.appState;
 		var vendors = appState.get('vendors')
 		var subHeader = appState.get('subHeader')
+		var afford = appState.get('afford')
 
 		return (
 			<div style={{marginBottom: '9rem'}} >
 				<List subheader={subHeader}>
 					{
 						vendors.map((vendor, index) => {
-							// distance = place.distance
+							var icon = afford ? <p style={style}>{vendor.price+' BTC'}</p> : <p style={style}>{vendor.distance+' mi'}</p>
+
 							return <ListItem
 								key={index}
 								style={{ cursor: 'pointer' }}
 								leftAvatar={<Avatar />}
 								primaryText={vendor.name}
 								secondaryText={vendor.address}
-								rightIcon={<p style={{right: '2rem'}}>{vendor.price}</p>} />
+								rightIcon={icon} />
 						})
 					}
 				</List>

@@ -32,6 +32,7 @@ var initialAppState = Immutable.Map({
 	activeGoal: {
 		id: 1,
 		type: 'A movie ticket',
+		query: 'movie',
 		goal: 0.025
 	},
 	subHeader: '',
@@ -50,7 +51,8 @@ var initialAppState = Immutable.Map({
 	goal: 25,
 	open: false,
 	notify: false,
-	notification: 'Payment processing'
+	notification: 'Payment processing',
+	afford: false
 })
 
 var initApp = GlobalEventHandler(initialAppState)
