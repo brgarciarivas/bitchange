@@ -70,6 +70,8 @@ body {
 	width: @pageWidth;
 	overflow-x:hidden;
 	font-size: 1.75rem;
+	line-height: 2.8rem;
+	color: @navy;
 }
 * {
 	-webkit-box-sizing: border-box;
@@ -131,19 +133,23 @@ p {
 
 // components
 
-#home {
-	overflow-y: scroll!important;
-	min-height: 100%;
-	height: auto!important;
+#balance {
+	text-align: center;
 }
-
-.jar {
-	height: 100vh/2;
+#change {
+	height: 0;
+	background: @green;
+	position: absolute;
+	bottom: 0;
 	width: 100%;
+	// border-radius: 0 0 26px 26px;
+	border-radius: 0 0 30px 30px;
+	.transition(height, 0.5s);
+	max-height: 100%;
+	overflow: hidden!important;
 }
-
 .glass {
-	height: 65%;
+	height: 80%;
 	width: 40%;
 	color: @navy;
 	border: solid 6px;
@@ -152,15 +158,19 @@ p {
 	border-top: 0;
 	position: relative;
 }
-
-#change {
-	height: 0;
-	background: @green;
-	position: absolute;
-	bottom: 0;
+#home {
+	overflow-y: scroll!important;
+	min-height: 100%;
+	height: auto!important;
+}
+.jar {
+	height: 40vh;
 	width: 100%;
-	border-radius: 0 0 26px 26px;
-	.transition(height, 0.5s);
-	max-height: 100%;
-	overflow: hidden!important;
+}
+#qr {
+	display: flex;
+	height: 40%;
+	img {
+		margin: auto;
+	}
 }

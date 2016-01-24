@@ -1,22 +1,40 @@
 import React from 'react'
 import Base from './Base'
 import Moment from 'moment'
+import api from '../scripts/api'
 
 import List from 'material-ui/lib/lists/list'
 import ListItem from 'material-ui/lib/lists/list-item'
 import Avatar from 'material-ui/lib/avatar'
 import FloatingActionButton from 'material-ui/lib/floating-action-button'
+import FontIcon from 'material-ui/lib/font-icon'
 
 class Transactions extends Base {
 	constructor(props) {
 		super(props)
-		this.autoBind('createNewTransaction')
+		this.autoBind('createNewTransaction', 'getTransactions', 'appendTypes')
 	}
 	createNewTransaction() {
 		console.log('new transaction')
+		this.context.push({
+			open: true
+		})
+	}
+	getTransactions() {
+		console.log('fetching transactions...')
+	}
+	appendTypes(transactions) {
+		
 	}
 	render() {
-		let transactions = this.props.appState.get('transactions')
+		var appState = this.context.appState;
+		// var transactions = this.props.appState.get('transactions')
+		var transactions = appState.get('transactions')
+		var buttonStyle = {
+			position: 'fixed',
+			right: '3rem',
+			bottom: '3rem'
+		}
 
 		// I can show
 		// amount
@@ -32,15 +50,24 @@ class Transactions extends Base {
 								key={index}
 								style={{ cursor: 'pointer' }}
 								leftAvatar={<Avatar />}
-								primaryText={trans.location}
-								secondaryText={Moment(trans.date).format('h:mm - MMM D YYYY')} />
+								primaryText={trans.typeId}
+								secondaryText={Moment(trans.date).format('MMM D YYYY')} />
 						})
 					}
-					<FloatingActionButton onTouchTap={this.createNewTransaction} />
 				</List>
+				<FloatingActionButton
+					style={buttonStyle}
+					onTouchTap={this.createNewTransaction} >
+					<FontIcon className='material-icons'>add</FontIcon>
+				</FloatingActionButton>
 			</div>
 		)
 	}
+}
+
+Transactions.contextTypes = {
+	push: React.PropTypes.func,
+	appState: React.PropTypes.object
 }
 
 export default Transactions

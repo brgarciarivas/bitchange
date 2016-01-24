@@ -9,7 +9,7 @@ var client = new coinbase.Client({
     'apiKey': settings.API_KEY,
     'apiSecret': settings.API_SECRET,
     'baseApiUri': 'https://api.sandbox.coinbase.com/v2/',
-  	'tokenUri': 'https://api.sandbox.coinbase.com/oauth/token'
+      'tokenUri': 'https://api.sandbox.coinbase.com/oauth/token'
 });
 
 app.get('/getBalance', function (req, res) {
@@ -35,15 +35,15 @@ app.get('/getAccount', function (req, res) {
 });
 
 app.get('/getTransactions', function (req, res) {
-		var responseObject = {};
-		responseObject.transactions = [];
-		client.getAccount('primary', function(err, account) {
-				account.getTransactions(null, function(err, txs) {
-						console.log(txs);
-						responseObject.transactions = txs
-						res.send(responseObject);
-				});
-		});
+        var responseObject = {};
+        responseObject.transactions = [];
+        client.getAccount('primary', function(err, account) {
+                account.getTransactions(null, function(err, txs) {
+                        console.log(txs);
+                        responseObject.transactions = txs
+                        res.send(responseObject);
+                });
+        });
 });
 
 app.get('/getAddress', function (req, res) {
