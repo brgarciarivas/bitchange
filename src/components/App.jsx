@@ -26,14 +26,14 @@ var initialAppState = Immutable.Map({
 			id: 2,
 			type: 'A Cup of Coffee',
 			reached: false,
-			goal: 0.01
+			goal: 0.011
 		}
 	},
 	activeGoal: {
 		id: 1,
-		goal: 'To See A Movie',
+		type: 'To See A Movie',
 		reached: false,
-		goal: 0.03
+		goal: 0.025
 	},
 	places: [
 		{
@@ -45,7 +45,7 @@ var initialAppState = Immutable.Map({
 	account: {},
 	qrCode: 'QR cant melt steel memes',
 	balance: {
-		balance: 0,
+		balance: 10,
 		native_balance: 0
 	},
 	goal: 25,
@@ -78,12 +78,15 @@ export default class App extends Base {
 	getAddress() {
 		api.get('http://localhost:3000/getAddress')
 			.then(res => {
-				console.log(res)
+				push({
+					qrCode: res.address
+				})
 			})
 	}
 	getBalance() {
 		api.get('http://localhost:3000/getBalance')
 			.then(res => {
+				console.log('new balance', res.balance)
 				push({
 					balance: res
 				})
@@ -92,8 +95,7 @@ export default class App extends Base {
 	getChildContext() {
 		return {
 			push: push,
-			muiTheme: ThemeManager.getMuiTheme(DankMemes),
-			appState: this.state.appState
+			muiTheme: ThemeManager.getMuiTheme(DankMemes)
 		}
 	}
 	render() {
@@ -111,6 +113,5 @@ export default class App extends Base {
 
 App.childContextTypes = {
 	push: React.PropTypes.func,
-	muiTheme: React.PropTypes.object,
-	appState: React.PropTypes.object
+	muiTheme: React.PropTypes.object
 }

@@ -33,6 +33,5 @@ export default class CreateButton extends Base {
 }
 
 CreateButton.contextTypes = {
-	push: React.PropTypes.func,
-	appState: React.PropTypes.object
+	push: React.PropTypes.func
 }

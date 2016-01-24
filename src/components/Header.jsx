@@ -10,6 +10,14 @@ export default class Header extends Base {
 		super(props)
 		this.autoBind('showImage')
 	}
+	componentWillReceiveProps(nextProps) {
+		if(nextProps.appState.get('balance').balance >= this.props.appState.get('activeGoal').goal) {
+			this.context.push({
+				header: 'I can buy...'
+			})	
+			forceUpdate()
+		}
+	}
 	showImage(active, balance, goal) {
 		switch(active) {
 			case 1:
@@ -19,25 +27,22 @@ export default class Header extends Base {
 		}
 	}
 	render() {
-		var appState = this.context.appState
+		var appState = this.props.appState
 		var activeGoal = appState.get('activeGoal')
 		var balance = appState.get('balance').balance
 		var header = appState.get('header')
-
-		console.log(activeGoal.goal == balance)
 
 		return (
 			<header className='flex-column'>
 				<h3>{header}</h3>
 				{this.showImage(activeGoal.id, balance, activeGoal.goal)}
-				<Balance />
-				<DropDown />
+				<Balance appState={appState} />
+				<DropDown appState={appState} />
 			</header>
 		)
 	}
 }
 
 Header.contextTypes = {
-	push: React.PropTypes.func,
-	appState: React.PropTypes.object
+	push: React.PropTypes.func
 }

@@ -28,23 +28,22 @@ export default class Home extends Base {
 		}
 	}
 	render() {
-		var appState = this.context.appState
+		var appState = this.props.appState
 		var open = appState.get('open')
 
 		return (
 			<div id='home' className='flex-column'>
 				<NewTransaction open={open} />
 
-				<Header />
-				<Divider />
-				<Places />
-				<CreateButton />
+				<Header appState={appState} />
+				<Divider appState={appState} />
+				<Places appState={appState} />
+				<CreateButton appState={appState} />
 			</div>
 		)
 	}
 }
 
 Home.contextTypes = {
-	push: React.PropTypes.func,
-	appState: React.PropTypes.object
+	push: React.PropTypes.func
 }

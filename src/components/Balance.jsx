@@ -1,7 +1,6 @@
 import React from 'react'
 import Base from './Base'
 import Money from 'money-math'
-
 import api from '../scripts/api'
 
 export default class Balance extends Base {
@@ -26,13 +25,14 @@ export default class Balance extends Base {
 		// 	})
 		// })
 	}
+
 	render() {
-		var appState = this.context.appState
+		var appState = this.props.appState
 		var goal = appState.get('activeGoal').goal
 		var usrBalance = appState.get('balance')
 		var {balance, native_balance} = usrBalance
 
-		balance = Money.floatToAmount(balance)
+		balance = balance.toString().slice(0, 5)
 		native_balance = Money.floatToAmount(native_balance)
 
 		// var convertedBalance = Money.floatToAmount(this.convertToUsd(balance))
@@ -48,6 +48,5 @@ export default class Balance extends Base {
 }
 
 Balance.contextTypes = {
-	push: React.PropTypes.func,
-	appState: React.PropTypes.object
+	push: React.PropTypes.func
 }

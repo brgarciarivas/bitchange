@@ -31,11 +31,11 @@ export default class DropDown extends Base {
 		console.log(value)
 		this.setState({value})
 		this.context.push({
-			activeGoal: this.context.appState.get('goals')[value]
+			activeGoal: this.props.appState.get('goals')[value]
 		})
 	}
 	render() {
-		var appState = this.context.appState
+		var appState = this.props.appState
 		var movie = appState.get('goals')[1].type
 		var coffee = appState.get('goals')[2].type
 		
@@ -61,6 +61,5 @@ export default class DropDown extends Base {
 }
 
 DropDown.contextTypes = {
-	push: React.PropTypes.func,
-	appState: React.PropTypes.object
+	push: React.PropTypes.func
 }

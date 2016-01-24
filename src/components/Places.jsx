@@ -24,7 +24,7 @@ class Places extends Base {
 		// get these when goalReached = true
 	}
 	render() {
-		var appState = this.context.appState;
+		var appState = this.props.appState;
 		var places = appState.get('places')
 		// TODO compare activeGoal.goal to balance for subheader & places
 		return (
@@ -49,8 +49,7 @@ class Places extends Base {
 }
 
 Places.contextTypes = {
-	push: React.PropTypes.func,
-	appState: React.PropTypes.object
+	push: React.PropTypes.func
 }
 
 export default Places

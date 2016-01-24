@@ -52,8 +52,7 @@ export default class NewTransaction extends Base {
 }
 
 NewTransaction.contextTypes = {
-	push: React.PropTypes.func,
-	appState: React.PropTypes.object
+	push: React.PropTypes.func
 }
 
 NewTransaction.defaultProps = {
