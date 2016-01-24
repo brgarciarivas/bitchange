@@ -40,7 +40,7 @@ var initialAppState = Immutable.Map({
 	],
 	qrCode: 'nope',
 	balance: {
-		balance: 10,
+		balance: 0,
 		native_balance: 0
 	},
 	goal: 25,
