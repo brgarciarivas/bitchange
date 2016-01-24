@@ -11,7 +11,10 @@ import Code from './Code'
 export default class NewTransaction extends Base {
 	constructor(props) {
 		super(props)
-		this.autoBind('handlePayment', 'close')
+		this.autoBind('handlePayment', 'close', 'updateBalance')
+	}
+	componentDidMount() {
+		// setInterval() 
 	}
 	close() {
 		this.context.push({
@@ -19,17 +22,19 @@ export default class NewTransaction extends Base {
 		})
 	}
 	handlePayment() {
-		console.log('ayy lmao dank memes')
+
+	}
+	updateBalance() {
+		api.get('http://localhost:3000/getBalance')
+			.then(res => {
+
+			})
 	}
 	render() {
 		var actions = [
 			<FlatButton
 				label='Cancel'
 				onTouchTap={this.close}/>,
-			<FlatButton
-				label='Request'
-				primary={true}
-				onTouchTap={this.handlePayment} />
 		]
 
 		return (
@@ -47,7 +52,8 @@ export default class NewTransaction extends Base {
 }
 
 NewTransaction.contextTypes = {
-	push: React.PropTypes.func
+	push: React.PropTypes.func,
+	appState: React.PropTypes.object
 }
 
 NewTransaction.defaultProps = {

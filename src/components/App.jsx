@@ -1,6 +1,9 @@
 import React from 'react'
 import Immutable from 'immutable'
 import GlobalEventHandler from '../scripts/globalEventHandler'
+import api from '../scripts/api'
+
+// tap event fix
 import injectTapEventPlugin from 'react-tap-event-plugin'
 injectTapEventPlugin()
 
@@ -11,76 +14,42 @@ import Base from './Base'
 
 var testDate = new Date()
 var initialAppState = Immutable.Map({
-	test: 1,
-	transactions: [
-		{
+	header: 'I Want ...',
+	goals: {
+		1: {
 			id: 1,
-			date: testDate,
-			amount: .35
+			type: 'To See A Movie',
+			reached: false,
+			goal: 0.03
 		},
-		{
+		2: {
 			id: 2,
-			date: testDate,
-			amount: .45
-		},
+			type: 'A Cup of Coffee',
+			reached: false,
+			goal: 0.01
+		}
+	},
+	activeGoal: {
+		id: 1,
+		goal: 'To See A Movie',
+		reached: false,
+		goal: 0.03
+	},
+	places: [
 		{
-			id: 3,
-			date: testDate,
-			amount: .55
-		},
-		{
-			id: 4,
-			date: testDate,
-			amount: .65
+			name: 'Sethau5 2.0',
+			address: '1000 W. Las Olad Blvd',
+			distance: '2.5 mi'
 		}
 	],
-	types: [
-		{
-			id: 1,
-			type: 'Food & Drink',
-			icon: 'restaurant_menu'
-		},
-		{
-			id: 2,
-			type: 'Entertainment',
-			icon: 'local_bar'
-		},
-		{
-			id: 3,
-			type: 'Travel',
-			icon: 'local_taxi'
-		},
-		{
-			id: 4,
-			type: 'Technology',
-			icon: 'computer'
-		}
-	],
-	// types: {
-	// 	1: {
-	// 		type: 'Food & Drink',
-	// 		icon: 'restaurant_menu'
-	// 	},
-	// 	2: {
-	// 		type: 'Entertainment',
-	// 		icon: 'local_bar'
-	// 	},
-	// 	3: {
-
-	// 		type: 'Travel',
-	// 		icon: 'local_taxi'
-	// 	},
-	// 	4: {
-	// 		type: 'Technology',
-	// 		icon: 'computer'
-	// 	}
-	// },
-	user: {},
+	account: {},
 	qrCode: 'QR cant melt steel memes',
-	balance: 3,
+	balance: {
+		balance: 0,
+		native_balance: 0
+	},
 	goal: 25,
-	open: false,
-	menuOpen: false
+	open: false
 })
 
 var initApp = GlobalEventHandler(initialAppState)
@@ -93,16 +62,32 @@ const push = (data) => pushFn({
 export default class App extends Base {
 	constructor(props) {
 		super(props)
-		this.autoBind('initialize')
+		this.autoBind('initialize', 'getBalance', 'getAddress')
 		this.state = {
 			appState: initialAppState
 		}
 	}
 	componentWillMount() {
 		this.initialize()
+		this.getBalance()
+		this.getAddress()
 	}
 	initialize() {
 		initApp.floodGate.subscribe(newState => this.setState({ appState: newState }))
+	}
+	getAddress() {
+		api.get('http://localhost:3000/getAddress')
+			.then(res => {
+				console.log(res)
+			})
+	}
+	getBalance() {
+		api.get('http://localhost:3000/getBalance')
+			.then(res => {
+				push({
+					balance: res
+				})
+			})
 	}
 	getChildContext() {
 		return {

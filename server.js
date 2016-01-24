@@ -4,7 +4,7 @@ var coinbase = require('coinbase');
 var settings = require('./config/settings');
 var moment = require('moment');
 var _ = require('underscore');
-// var Vendor = require('./models/Vendor')
+var Vendor = require('./models/Vendor')
 
 
 var client = new coinbase.Client({

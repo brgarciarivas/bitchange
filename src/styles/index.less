@@ -1,6 +1,7 @@
 // variables
 
 @pageWidth: 100vw;
+@pageHeight: 100vh;
 
 // colors
 
@@ -136,36 +137,61 @@ p {
 #balance {
 	text-align: center;
 }
-#change {
-	height: 0;
-	background: @green;
+.progressBase {
 	position: absolute;
 	bottom: 0;
-	width: 100%;
-	// border-radius: 0 0 26px 26px;
-	border-radius: 0 0 30px 30px;
-	.transition(height, 0.5s);
+	background: @green;
 	max-height: 100%;
 	overflow: hidden!important;
+	.transition(height, 0.5s);
 }
 .glass {
+	@color: @navy;
+	@border: solid 6px;
 	height: 80%;
 	width: 40%;
-	color: @navy;
-	border: solid 6px;
+	color: @color;
+	border: @border;
 	border-bottom: 8px solid;
 	border-radius: 0 0 20% 20%;
-	border-top: 0;
 	position: relative;
+	.handle {
+		position: absolute;
+		height: 50%;
+		width: 25%;
+		right: -25%;
+		color: @color;
+		border: @border;
+	}
+}
+
+header {
+	height: @pageHeight*2/3;
+	h3 {
+		margin: 3rem;
+	}
 }
 #home {
 	overflow-y: scroll!important;
 	min-height: 100%;
 	height: auto!important;
 }
-.jar {
-	height: 40vh;
+#jar, #movie {
+	height: 35%;
 	width: 100%;
+}
+#jar .progress {
+	&:extend(.progressBase);
+	width: 100%;
+	border-radius: 0 0 18px 18px;
+}
+#movie {
+	position: relative;
+}
+#movie .progress {
+	&:extend(.progressBase);
+	width: 112px;
+	z-index: 1;
 }
 #qr {
 	display: flex;

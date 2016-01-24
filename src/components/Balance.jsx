@@ -18,23 +18,36 @@ export default class Balance extends Base {
 		return amount*rate
 	}
 	getExchangeRates() {
-		var endpoint = 'https://api.coinbase.com/v2/exchange-rates?currency=BTC'
-		api.get(endpoint).then(res => {
-			var rate = parseInt(res.data.rates.USD)
-			this.setState({
-				dollarsPerBitcoin: rate
-			})
-		})
+		// var endpoint = 'https://api.coinbase.com/v2/exchange-rates?currency=BTC'
+		// api.get(endpoint).then(res => {
+		// 	var rate = parseInt(res.data.rates.USD)
+		// 	this.setState({
+		// 		dollarsPerBitcoin: rate
+		// 	})
+		// })
 	}
 	render() {
-		var {balance, goal} = this.props
-		var convertedBalance = Money.floatToAmount(this.convertToUsd(balance))
-		var convertedGoal = Money.floatToAmount(this.convertToUsd(goal))
+		var appState = this.context.appState
+		var goal = appState.get('activeGoal').goal
+		var usrBalance = appState.get('balance')
+		var {balance, native_balance} = usrBalance
+
+		balance = Money.floatToAmount(balance)
+		native_balance = Money.floatToAmount(native_balance)
+
+		// var convertedBalance = Money.floatToAmount(this.convertToUsd(balance))
+		// var convertedGoal = Money.floatToAmount(this.convertToUsd(goal))
+
 		return (
 			<div id='balance' className='flex-column'>
-				<h1 style={{marginBottom:0}}>{`${balance} / ${goal} BTC`}</h1>
-				<p>{`${convertedBalance} / ${convertedGoal} USD`}</p>
+				<h3 style={{margin:0}}>{`${balance} / ${goal} BTC`}</h3>
+				{/*<p>{`${native_balance} / ${goal} USD`}</p>*/}
 			</div>
 		)
 	}
+}
+
+Balance.contextTypes = {
+	push: React.PropTypes.func,
+	appState: React.PropTypes.object
 }

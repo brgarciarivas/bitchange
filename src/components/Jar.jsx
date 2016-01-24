@@ -1,25 +1,24 @@
 import React from 'react'
 import Base from './Base'
-import $ from 'jquery'
 
 export default class Jar extends Base {
 	constructor(props) {
 		super(props)
 	}
-	componentDidMount() {
-		// animation stuff 
-	}
 	render() {
 		var {balance, goal} = this.props
 		var height = (balance/goal)*100
-		var style = {
+		height = parseInt(height)
+
+		var progress = {
 			height: height+'%'
 		}
 		
 		return (
-			<div className='jar flex-column'>
+			<div id='jar' className='flex-column'>
 				<div className='glass center'>
-					<div id='change' style={style}/>
+					<div className='progress' style={progress}/>
+					<div className='handle' />
 				</div>
 			</div>
 		)
