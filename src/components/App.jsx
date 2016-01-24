@@ -14,33 +14,69 @@ var initialAppState = Immutable.Map({
 	test: 1,
 	transactions: [
 		{
-			location: 'Nugbrand',
+			id: 1,
 			date: testDate,
 			amount: .35
 		},
 		{
-			location: '7 11',
+			id: 2,
 			date: testDate,
 			amount: .45
 		},
 		{
-			location: 'Setmine',
+			id: 3,
 			date: testDate,
 			amount: .55
 		},
 		{
-			location: 'Setmine',
+			id: 4,
 			date: testDate,
-			amount: .55
+			amount: .65
+		},
+	],
+	types: [
+		{
+			id: 1,
+			type: 'Food & Drink',
+			icon: 'restaurant_menu'
 		},
 		{
-			location: 'Setmine',
-			date: testDate,
-			amount: .55
+			id: 2,
+			type: 'Entertainment',
+			icon: 'local_bar'
+		},
+		{
+			id: 3,
+			type: 'Travel',
+			icon: 'local_taxi'
+		},
+		{
+			id: 4,
+			type: 'Technology',
+			icon: 'computer'
 		}
 	],
+	// types: {
+	// 	1: {
+	// 		type: 'Food & Drink',
+	// 		icon: 'restaurant_menu'
+	// 	},
+	// 	2: {
+	// 		type: 'Entertainment',
+	// 		icon: 'local_bar'
+	// 	},
+	// 	3: {
+
+	// 		type: 'Travel',
+	// 		icon: 'local_taxi'
+	// 	},
+	// 	4: {
+	// 		type: 'Technology',
+	// 		icon: 'computer'
+	// 	}
+	// },
 	user: {},
-	qrCode: 'jet fuel cant melt steel memes',
+	qrCode: 'QR cant melt steel memes',
 	balance: 3,
 	goal: 25,
 	open: false,
@@ -64,7 +100,6 @@ export default class App extends Base {
 	}
 	componentWillMount() {
 		this.initialize()
-		console.log(typeof(this.state.appState))
 	}
 	initialize() {
 		initApp.floodGate.subscribe(newState => this.setState({ appState: newState }))

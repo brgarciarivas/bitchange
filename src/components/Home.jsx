@@ -35,23 +35,25 @@ export default class Home extends Base {
 		})
 	}
 	render() {
-		var appState = this.props.appState
-		// var balance = appState.get('balance')
-		var balance = this.context.appState.get('balance')
+		// var appState = this.props.appState
+		var appState = this.context.appState
+		var balance = appState.get('balance')
+		var balance = appState.get('balance')
 		var goal = appState.get('goal')
 		var menuOpen = appState.get('menuOpen')
 		var open = appState.get('open')
 
 		return (
 			<div id='home' className='flex-column'>
-				<span onClick={this.updateBalance}>{balance}</span>
+				<span className='hidden' onClick={this.updateBalance}>{balance}</span>
 				<AppBar onTouchTap={this.toggleMenu} />
 				<NavMenu menuOpen={menuOpen} />
 				<NewTransaction open={open} />
+
 				<Jar balance={balance} goal={goal} />
 				<Balance balance={balance} goal={goal} />
 				<Divider />
-				<Transactions appState={this.props.appState} />
+				<Transactions />
 			</div>
 		)
 	}

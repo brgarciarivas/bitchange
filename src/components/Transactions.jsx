@@ -12,7 +12,7 @@ import FontIcon from 'material-ui/lib/font-icon'
 class Transactions extends Base {
 	constructor(props) {
 		super(props)
-		this.autoBind('createNewTransaction', 'getTransactions')
+		this.autoBind('createNewTransaction', 'getTransactions', 'appendTypes')
 	}
 	createNewTransaction() {
 		console.log('new transaction')
@@ -23,8 +23,13 @@ class Transactions extends Base {
 	getTransactions() {
 		console.log('fetching transactions...')
 	}
+	appendTypes(transactions) {
+		
+	}
 	render() {
-		var transactions = this.props.appState.get('transactions')
+		var appState = this.context.appState;
+		// var transactions = this.props.appState.get('transactions')
+		var transactions = appState.get('transactions')
 		var buttonStyle = {
 			position: 'fixed',
 			right: '3rem',
@@ -45,8 +50,8 @@ class Transactions extends Base {
 								key={index}
 								style={{ cursor: 'pointer' }}
 								leftAvatar={<Avatar />}
-								primaryText={trans.location}
-								secondaryText={Moment(trans.date).format('h:mm - MMM D YYYY')} />
+								primaryText={trans.typeId}
+								secondaryText={Moment(trans.date).format('MMM D YYYY')} />
 						})
 					}
 				</List>
@@ -61,7 +66,8 @@ class Transactions extends Base {
 }
 
 Transactions.contextTypes = {
-	push: React.PropTypes.func
+	push: React.PropTypes.func,
+	appState: React.PropTypes.object
 }
 
 export default Transactions

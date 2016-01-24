@@ -20,7 +20,6 @@ export default class Balance extends Base {
 	getExchangeRates() {
 		var endpoint = 'https://api.coinbase.com/v2/exchange-rates?currency=BTC'
 		api.get(endpoint).then(res => {
-			console.log(res)
 			var rate = parseInt(res.data.rates.USD)
 			this.setState({
 				dollarsPerBitcoin: rate

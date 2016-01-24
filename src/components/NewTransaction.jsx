@@ -25,7 +25,6 @@ export default class NewTransaction extends Base {
 		var actions = [
 			<FlatButton
 				label='Cancel'
-				secondary={true}
 				onTouchTap={this.close}/>,
 			<FlatButton
 				label='Request'
