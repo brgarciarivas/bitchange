@@ -77,7 +77,7 @@ app.get('/getLastLogin', function (req, res) {
         res.send("Here's the last time you were here.");
 });
 
-var port = 3000;
+var port = process.env.port || 3000;
 
 app.listen(port, function (req, res) {
     console.log('Server is running on port ' + port);
