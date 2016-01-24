@@ -81,7 +81,9 @@ app.get('/getVendors', function (req, res) {
 app.get('/getAddress', function (req, res) {
     var primaryAccount = client.getAccount('primary', function (err, account) {
         account.createAddress(null, function (err, address) {
-            res.send(address.address);
+            res.send({
+                address: address.address
+            });
         });
     });
 });
