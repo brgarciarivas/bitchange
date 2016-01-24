@@ -4,7 +4,7 @@ var coinbase = require('coinbase');
 var settings = require('./config/settings');
 var moment = require('moment');
 var _ = require('underscore');
-var Vendor = require('./models/Vendor')
+// var Vendor = require('./models/Vendor')
 
 
 var client = new coinbase.Client({
@@ -24,66 +24,59 @@ app.get('/getBalance', function (req, res) {
     client.getAccount('primary', function (err, account) {
         var balanceObject = {
             balance: account.balance.amount,
-            native_balance: account.native_balance.amount,
+            native_balance: (parseFloat(account.balance.amount) * 388.4).toString(),
             currency: account.balance.currency,
-            native_currency: account.balance.native_currency
+            native_currency: 'USD'
         };
+
         res.send(balanceObject);
     });
 });
 
 app.get('/getVendors', function (req, res) {
-		new Vendor()
-		.fetchAll()
-		.then ( function (vendors) {
-				res.send(vendors.toJSON());
-		});
-});
-
-app.get('/getAccount', function (req, res) {
-    client.getAccount('primary', function (err, account) {
-        var primaryAccount = {
-            name: account.name,
-            balance: account.balance.amount,
-            currency: account.currency,
-            native_balance: account.native_balance.amount,
-            native_balance_currency: account.native_balance_currency,
-            email: account
-        };
-        res.send(primaryAccount);
-    });
-});
-
-app.get('/getPayRequest', function (req, res) {
-		client.getAccount('primary', function (err, account) {
-				
-		})
-})
-
-app.get('/getUser', function (req, res) {
-    client.getCurrentUser(function(err, user){
-        var current_user = {
-            email: user.email,
-            name: user.name
-        };
-
-        res.send(current_user);
-    });
-});
-
-app.get('/getTransactions', function (req, res) {
-    var responseObject = {};
-    responseObject.transactions = [];
-    client.getAccount('primary', function(err, account) {
-        account.getTransactions(null, function(err, txs) {
-            responseObject = {
-                transactions: txs
-            };
-
-            res.send(responseObject);
+        new Vendor()
+        .fetchAll()
+        .then ( function (vendors) {
+                res.send(vendors.toJSON());
         });
-    });
 });
+
+// app.get('/payRequest', function (req, res) {
+//     client.getAccounts({}, function (err, accounts) {
+//         var sellerAccount = accounts[0];
+//         var customerAccount = accounts[1];
+//
+//         console.log('==customer account==');
+//         console.log(customerAccount.balance.amount);
+//
+//         customerAccount.createAddress(null, function (err, address) {
+//             console.log('Created new customer address to use:');
+//             console.log(address.address);
+//
+//             console.log('Initiating payment...');
+//             var args = {
+//                 "to": address.address,
+//                 "amount": "0.001930",
+//                 "currency": "BTC",
+//                 "description": "BitChange"
+//             };
+//
+//             sellerAccount.sendMoney(args, function (err, txn) {
+//                 if (err) {
+//                     console.log('==ERROROROROROROROROROROROR==');
+//                     console.log(err);
+//                 }
+//                 console.log('Transaction created:');
+//                 console.log(txn);
+//
+//                 console.log('==customer account after txn created==');
+//                 console.log(customerAccount);
+//
+//                 res.send(txn);
+//             });
+//         });
+//     });
+// });
 
 app.get('/getAddress', function (req, res) {
     var primaryAccount = client.getAccount('primary', function (err, account) {
@@ -91,11 +84,6 @@ app.get('/getAddress', function (req, res) {
             res.send(address.address);
         });
     });
-});
-
-app.get('/getLastLogin', function (req, res) {
-    console.log("Looking for login.");
-    res.send("Here's the last time you were here.");
 });
 
 var port = process.env.PORT || 3000;
