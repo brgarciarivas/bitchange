@@ -5,7 +5,7 @@ var settings = require('./config/settings');
 var moment = require('moment');
 var _ = require('underscore');
 var Vendor = require('./models/Vendor')
-
+var Venue = require('./models/Venue');
 
 var client = new coinbase.Client({
     'apiKey': settings.API_KEY,
@@ -34,49 +34,42 @@ app.get('/getBalance', function (req, res) {
 });
 
 app.get('/getVendors', function (req, res) {
-        new Vendor()
-        .fetchAll()
-        .then ( function (vendors) {
-                res.send(vendors.toJSON());
-        });
-});
+    var goalType = req.query.goal;
+    console.log('Looking for goal ' + goalType);
 
-// app.get('/payRequest', function (req, res) {
-//     client.getAccounts({}, function (err, accounts) {
-//         var sellerAccount = accounts[0];
-//         var customerAccount = accounts[1];
-//
-//         console.log('==customer account==');
-//         console.log(customerAccount.balance.amount);
-//
-//         customerAccount.createAddress(null, function (err, address) {
-//             console.log('Created new customer address to use:');
-//             console.log(address.address);
-//
-//             console.log('Initiating payment...');
-//             var args = {
-//                 "to": address.address,
-//                 "amount": "0.001930",
-//                 "currency": "BTC",
-//                 "description": "BitChange"
-//             };
-//
-//             sellerAccount.sendMoney(args, function (err, txn) {
-//                 if (err) {
-//                     console.log('==ERROROROROROROROROROROROR==');
-//                     console.log(err);
-//                 }
-//                 console.log('Transaction created:');
-//                 console.log(txn);
-//
-//                 console.log('==customer account after txn created==');
-//                 console.log(customerAccount);
-//
-//                 res.send(txn);
-//             });
-//         });
-//     });
-// });
+    client.getAccount('primary', function (err, account) {
+        var minBalance = account.balance.amount;
+        console.log('Min balance');
+        console.log(minBalance);
+
+        new Venue().where('price', '<', minBalance)
+            .fetchAll({
+                withRelated: ['goals']
+            })
+            .then( function (venues) {
+                var matchingGenres = _.filter(venues.models, function (venue) {
+                    var goalArray = venue.related('goals').toJSON();
+                    return (_.pluck(goalArray, 'name').indexOf(goalType) > -1);
+                });
+
+                if (matchingGenres.length > 0) {
+                    res.send({
+                        status: true,
+                        vendors: matchingGenres
+                    });
+                } else {
+                    new Vendor()
+                    .fetchAll()
+                    .then ( function (vendors) {
+                        res.send({
+                            status: false,
+                            vendors: vendors.toJSON()
+                        });
+                    });
+                }
+            });
+    });
+});
 
 app.get('/getAddress', function (req, res) {
     var primaryAccount = client.getAccount('primary', function (err, account) {

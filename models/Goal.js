@@ -5,6 +5,10 @@ var Goal = bookshelf.Model.extend({
 
     account: function () {
         return this.belongsTo('Account');
+    },
+
+    venues: function () {
+        return this.belongsToMany('Venue', 'venues_to_goals', 'goal_id', 'venue_id');
     }
 });
 
